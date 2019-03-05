@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Adopets</title>
+        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
+        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="formularios.css" type="text/css">
+    </head>
+    <body>
+        <div id="header"></div>
+        
+        <section class="container-fluid bg">
+            <form class="form-sign-up" action="InsereUsuarioServlet" method="post">
+                <div class="offset">
+                    <div class="col-12 narrow text-center">
+                        <h1>Cadastre-se gratuitamente!</h1>
+                        <p class="lead">Ao se cadastrar você pode ser voluntário ou mesmo doar e adotar um pet!</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Digite seu nome de usuário</label>
+                    <input name="nome" type="text" class="form-control" placeholder="Nome de usuário">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Digite seu e-mail</label>
+                    <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+                    <small id="emailHelp" class="form-text text-muted">Seu e-mail não será compartilhado.</small>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Digite sua senha</label>
+                    <div class="input-group">
+                        <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capLock(event)">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <a href="#" class="text-dark" id="icon-click">
+                                    <i class="fa fa-eye" id="icon" aria-hidden="true"></i>
+                                </a>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="divMayus" style="visibility:hidden">Tecla Caps Lock está ativa.</div> 
+                        
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Mantenha-me conectado</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Cadastrar-se</button>
+            </form>
+        </section>
+        
+        <script type="text/javascript" src="index.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+    </body>
+</html>

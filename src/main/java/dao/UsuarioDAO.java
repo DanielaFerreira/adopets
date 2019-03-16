@@ -1,8 +1,8 @@
 package dao;
 
 import java.util.List;
-import java.util.regex.Pattern;
 import model.Usuario;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import util.HibernateUtil;
 
@@ -31,43 +31,16 @@ public class UsuarioDAO {
     }
 
     public List<Usuario> buscar(Usuario usuario) {
+        Query query;
         Session s = HibernateUtil.getSessionFactory().openSession();
-        String hql;
-        List<Usuario> text;
-        if(!Pattern.matches("[A-Za-z0-9\\\\._-]+@[A-Za-z0-9]+(\\\\.[A-Za-z]+)*", usuario.getNome())) {
-            hql = "from Usuario u where u.nome like :nome"
-                    + " and u.senha like :senha";
-            text = s.createQuery(hql)
-                    .setParameter("nome", usuario.getNome())
-                    .setParameter("senha", usuario.getSenha())
-                    .list();
-            
-        } else {
-            hql = "from Usuario u where u.email like :email"
-                    + " and u.senha like :senha";
-            text = s.createQuery(hql)
-                    .setParameter("email", usuario.getEmail())
-                    .setParameter("senha", usuario.getSenha())
-                    .list();
-            
-        }
-         return text;
-//        if(usuario.getNome().contains("@")) {
-//            hql = "from Usuario u where u.email like :email"
-//                    + " and u.senha like :senha";
-//            text = s.createQuery(hql)
-//                    .setParameter("email", usuario.getEmail())
-//                    .setParameter("senha", usuario.getSenha())
-//                    .list();
-//        } else {
-//            hql = "from Usuario u where u.nome like :nome"
-//                    + " and u.senha like :senha";
-//            text = s.createQuery(hql)
-//                    .setParameter("nome", usuario.getNome())
-//                    .setParameter("senha", usuario.getSenha())
-//                    .list();
-//        }
 
-       
+        String hql = "from Usuario u where u.email like :email"
+                + " and u.senha like :senha";
+        query = s.createQuery(hql)
+                .setParameter("email", usuario.getEmail())
+                .setParameter("senha", usuario.getSenha());
+
+        return query.list();
     }
+
 }

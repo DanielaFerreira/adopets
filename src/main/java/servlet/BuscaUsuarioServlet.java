@@ -10,31 +10,36 @@ import javax.servlet.http.HttpServletResponse;
 import model.Usuario;
 import dao.UsuarioDAO;
 import java.util.List;
+
 /**
  *
  * @author eduardo
  */
 @WebServlet(name = "BuscaUsuarioServlet", urlPatterns = {"/BuscaUsuarioServlet"})
 public class BuscaUsuarioServlet extends HttpServlet {
-    
-    List<Usuario> usuarios; 
-    
+
+    List<Usuario> usuarios;
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-               
+
         Usuario usuario = new Usuario();
-        
-        usuario.setNome(req.getParameter("usuario"));
+
+        usuario.setEmail(req.getParameter("email"));
         usuario.setSenha(req.getParameter("senha"));
-        
+
         UsuarioDAO dao = new UsuarioDAO();
+
         usuarios = dao.buscar(usuario);
-        
-        if(!usuarios.isEmpty()) {
-            PrintWriter out = resp.getWriter();
-            out.println("Bem-vindo(a)!");
-        }        
-        
+
+        PrintWriter out = resp.getWriter();
+
+        if (!usuarios.isEmpty()) {
+            out.println("Bem-vindo!");
+        } else {
+            out.println("Cadastro inexistente.");
+        }
+
     }
-    
+
 }

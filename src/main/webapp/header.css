@@ -15,18 +15,14 @@ body {
 .navbar {
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: .1rem;
     background-color: transparent;
     background: rgba(0, 0, 0, 0.6)!important;
 }
 
 .navbar-brand img {
-    height: 2rem;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-    color: white;
+    height: 3rem;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -34,7 +30,7 @@ body {
 }
 
 .btn-cadastro {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: bold;
     border-color: white;
 }

@@ -4,10 +4,12 @@
 */
 
 .bg{
-    background: url('img/Carousel04.png') no-repeat;
+    background: url('img/20.png') no-repeat;
     width: 100%;
     height: 100vh;
 }
+
+
 
 .form-sign-up{
     position: relative;

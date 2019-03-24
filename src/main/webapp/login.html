@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Adopets</title>
-        
+
         <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
         <script src="./node_modules/jquery/dist/jquery.min.js"></script>
         <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
@@ -13,7 +13,7 @@
     </head>
     <body>
         <div id="header"></div>
-        
+
         <section class="container-fluid bg">
             <form class="form-sign-up" action="BuscaUsuarioServlet" method="post">
                 <div class="offset">
@@ -22,11 +22,11 @@
                         <p class="lead">É rápido e fácil</p>
                     </div>
                 </div>
-                
-                                
+
+
                 <a href="doacao.html" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Entre via Facebook</a>
                 <a href="" class="btn btn-block btn-outline-danger"> <i class="fab fa-google"></i>   Entre via Gmail</a>
-                
+
 
                 <div class="form-group">
                     <label>Digite seu email</label>
@@ -35,7 +35,7 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Digite sua senha</label>
                     <div class="input-group">
-                        <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capLock(event)">
+                        <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capsLock(event)">
                         <div class="input-group-prepend">
                             <div class="input-group-text">
                                 <a href="#" class="text-dark" id="icon-click">
@@ -45,18 +45,19 @@
                         </div>
                     </div>
                     <small id="senhaHelp" class="form-text text-muted">Esqueceu sua senha? <a href="paginaRecuperacao.html" target="_blank"> Clique aqui </a></small>
+                    <small id="mensagemTeclaCapsLock" class="form-text text-muted" style="visibility:hidden">Tecla Caps Lock está ativa.</small> 
+
                 </div>
-                
-                <div id="divMayus" style="visibility:hidden">Tecla Caps Lock está ativa.</div> 
-                
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Mantenha-me conectado</label>
+                <div class="form-group">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Mantenha-me conectado</label>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Entrar</button>
             </form>
         </section>
-        
+
         <script type="text/javascript" src="index.js"></script>
         <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
     </body>

@@ -11,51 +11,59 @@
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="formularios.css" type="text/css">
     </head>
-    <body>
+    <body class="bg">
+        
+        
         <div id="header"></div>
 
-        <section class="container-fluid bg">
-            <form class="form-sign-up" action="BuscaUsuarioServlet" method="post">
-                <div class="offset">
-                    <div class="col-12 narrow text-center">
-                        <h1>Entre na sua conta</h1>
-                        <p class="lead">É rápido e fácil</p>
-                    </div>
-                </div>
+    
+        <section class="card" style="width: 28rem; margin-top: 15vh; margin-left: 10px;">
+            <div class="card-body">
 
-
-                <a href="doacao.html" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Entre via Facebook</a>
-                <a href="" class="btn btn-block btn-outline-danger"> <i class="fab fa-google"></i>   Entre via Gmail</a>
-
-
-                <div class="form-group">
-                    <label>Digite seu email</label>
-                    <input name="email" type="email" class="form-control" id="email" placeholder="Email">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Digite sua senha</label>
-                    <div class="input-group">
-                        <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capsLock(event)">
-                        <div class="input-group-prepend">
-                            <div class="input-group-text">
-                                <a href="#" class="text-dark" id="icon-click">
-                                    <i class="fa fa-eye-slash" id="icon" aria-hidden="true"></i>
-                                </a>
-                            </div>
+                <form class="form-sign-up" action="BuscaUsuarioServlet" method="post">
+                    <div class="offset">
+                        <div class="col-12 narrow text-center">
+                            <h3>Entre na sua conta</h3>
+                            <h6 class="card-subtitle mb-2 text-muted">É rápido e fácil</h6>
                         </div>
                     </div>
-                    <small id="senhaHelp" class="form-text text-muted">Esqueceu sua senha? <a href="paginaRecuperacao.html" target="_blank"> Clique aqui </a></small>
-                    <small id="mensagemTeclaCapsLock" class="form-text text-muted" style="visibility:hidden">Tecla Caps Lock está ativa.</small> 
 
-                </div>
-                <div class="form-group">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Mantenha-me conectado</label>
+                    <div class="form-group">
+                        <a href="doacao.html" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Entre via Facebook</a>
+                        <a href="" class="btn btn-block btn-outline-danger"> <i class="fab fa-google"></i>   Entre via Gmail</a>
                     </div>
-                </div>
-                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
-            </form>
+
+                    <center>Ou</center>
+                    <div class="form-group">
+                        <label>Digite seu email</label>
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Digite sua senha</label>
+                        <div class="input-group">
+                            <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capsLock(event)">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <a href="#" class="text-dark" id="icon-click">
+                                        <i class="fa fa-eye-slash" id="icon" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <small id="senhaHelp" class="form-text text-muted">Esqueceu sua senha? <a href="paginaRecuperacao.html" target="_blank"> Clique aqui </a></small>
+                        <small id="mensagemTeclaCapsLock" class="form-text text-muted" style="visibility:hidden">Tecla Caps Lock está ativa.</small> 
+
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Mantenha-me conectado</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                </form>
+
+            </div>
         </section>
 
         <script type="text/javascript" src="index.js"></script>

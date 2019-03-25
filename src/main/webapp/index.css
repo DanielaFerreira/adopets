@@ -91,7 +91,7 @@ h3.heading {
 }
 
 .feature svg.svg-inline--fa {
-  color: #1ebba3;
+  color: #D2691E;
 }
 
 .feature h3 {
@@ -150,7 +150,7 @@ footer svg.svg-inline--fa {
 }
 
 footer svg.svg-inline--fa:hover {
-  color: #1ebba3!important;
+  color: #D2691E!important;
 }
 
 hr.socket {

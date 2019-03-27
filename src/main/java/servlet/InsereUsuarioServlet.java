@@ -21,8 +21,8 @@ public class InsereUsuarioServlet extends HttpServlet {
         
         Usuario usuario = new Usuario();
         
-        usuario.setNome(req.getParameter("nome"));
         usuario.setEmail(req.getParameter("email"));
+        usuario.setNome(req.getParameter("nome"));
         usuario.setSenha(req.getParameter("senha"));
         
         UsuarioDAO dao = new UsuarioDAO();

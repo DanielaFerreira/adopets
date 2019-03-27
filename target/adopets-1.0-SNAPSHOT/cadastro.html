@@ -6,11 +6,14 @@
         <title>Adopets</title>
         <script src="./node_modules/jquery/dist/jquery.min.js"></script>
         <link rel="stylesheet" href="formularios.css" type="text/css">
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="358701642652-cs4j8i0rf1uh2p6sg5i58ubam3i9hek3.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     </head>
     <body class="bg">
         <div id="header"></div>
-        
-        <section class="card" style="width: 28rem; margin-top: 15vh; margin-left: 10px">
+
+        <section class="card" style="width: 28rem; margin-top: 15vh; margin-left: 10px;">
             <div class="card-body">
 
                 <form class="form-sign-up" action="InsereUsuarioServlet" method="post">
@@ -24,7 +27,8 @@
 
                     <div class="form-group">
                         <a href="doacao.html" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Cadastre-se via Facebook</a>
-                        <a href="" class="btn btn-block btn-outline-danger"> <i class="fab fa-google"></i>   Cadastre-se via Gmail</a>
+                        <!--<div class="btn btn-block btn-outline-danger" data-onsuccess="onSignIn"> <i class="fab fa-google"></i>   Cadastre-se via Gmail</div>-->
+                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-width="370" data-height="50" data-longtitle="true" data-lang="pt-BR" style="padding-top: 10px;"></div>
                     </div>
 
                     <center>Ou</center>
@@ -35,13 +39,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputNome">Digite seu Nome</label>
+                        <label for="exampleInputNome">Digite seu nome</label>
                         <input name="nome" type="text" class="form-control" aria-describedby="nameHelp" placeholder="Nome">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="exampleInputSobrenome">Digite seu Sobrenome</label>
-                        <input name="sobrenome" type="text" class="form-control" aria-describedby="lastNameHelp" placeholder="Sobrenome">
                     </div>
 
                     <div class="form-group">

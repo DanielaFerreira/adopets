@@ -21,6 +21,10 @@ body {
     background: rgba(0, 0, 0, 0.6)!important;
 }
 
+.nav-item {
+    padding-left: 20px;
+}
+
 .navbar-brand img {
     height: 3rem;
 }
@@ -39,11 +43,10 @@ body {
     background-color: white;
     text-shadow: none!important;
     color: black!important;
-    font-weight: normal ;
 }
 
 .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: #1ebba3; 
+    color: #D2691E; 
     text-shadow: black 0.1em 0.1em 0.2em;
 }

@@ -6,7 +6,7 @@
 //verifica se capsLock está ativa ou nao
 function capsLock(e) {
     var flag = event.getModifierState && event.getModifierState('CapsLock');
-    if(flag){
+    if (flag) {
         document.getElementById('mensagemTeclaCapsLock').style.visibility = 'visible';
     } else
         document.getElementById('mensagemTeclaCapsLock').style.visibility = 'hidden';
@@ -33,3 +33,26 @@ $(document).ready(function () {
         }
     });
 });
+
+//Usada para autenticar cadastro ou login
+function onSignIn(response) {
+    // Conseguindo as informações do seu usuário:
+    var profile = response.getBasicProfile();
+
+    // Recebendo o TOKEN que você usará nas demais requisições à API:
+    var LoR = response.getAuthResponse().id_token;
+    console.log("~ le Tolkien: " + LoR);
+
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    var email = console.log('Email: ' + profile.getEmail());
+
+//    $(document).ready(function () {
+//       
+//            var email1 = $(email).val(); 
+//                    $.get('LoginGmailServlet', {user: email1});
+//        
+//    });
+}

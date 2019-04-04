@@ -56,3 +56,27 @@ function onSignIn(response) {
 //        
 //    });
 }
+
+//chamada de servlet
+//var xhr = new XMLHttpRequest();
+//xhr.onreadystatechange = function () {
+//    if (xhr.readyState == 4) {
+//        var data = xhr.responseText;
+//        alert(data);
+//    }
+//}
+//xhr.open('GET', 'myservlet', true);
+//xhr.send(null);
+
+//verifica abertura de aba
+//var aba= window.open('http://stackoverflow.com/', '_blank');
+//if (aba) {
+//    //navegador permitiu a abertura
+//    aba.onload(function(){
+//    //chamar aba 2
+//
+//    });
+//} else {
+//    //Navegador bloqueou !
+//    alert('Bloqueado pelo bloqueador de popup');
+//}

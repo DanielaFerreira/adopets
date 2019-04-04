@@ -1,6 +1,9 @@
+servlet/LoginGmailServlet.class
+util/JavaMail$1.class
 model/Usuario_.class
 model/Usuario.class
 util/HibernateUtil.class
 servlet/InsereUsuarioServlet.class
 servlet/BuscaUsuarioServlet.class
+util/JavaMail.class
 dao/UsuarioDAO.class

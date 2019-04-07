@@ -1,4 +1,3 @@
-servlet/LoginGmailServlet.class
 model/Usuario_.class
 servlet/CadastraUsuarioServlet.class
 util/CommonsMail.class

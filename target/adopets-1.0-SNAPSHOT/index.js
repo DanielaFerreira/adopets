@@ -82,3 +82,9 @@ function onSignIn(response) {
 //}
 
 
+//indicação para a animação do login ativar
+$('input[type="password"]').on('focus', () => {
+  $('*').addClass('password');
+}).on('focusout', () => {
+  $('*').removeClass('password');
+});

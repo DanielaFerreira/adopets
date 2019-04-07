@@ -1,9 +1,9 @@
 servlet/LoginGmailServlet.class
-util/JavaMail$1.class
 model/Usuario_.class
+servlet/CadastraUsuarioServlet.class
+util/CommonsMail.class
 model/Usuario.class
 util/HibernateUtil.class
-servlet/InsereUsuarioServlet.class
-servlet/BuscaUsuarioServlet.class
-util/JavaMail.class
+servlet/EnviaEmailServlet.class
 dao/UsuarioDAO.class
+servlet/LoginServlet.class

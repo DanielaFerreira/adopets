@@ -5,16 +5,17 @@
  */
 package servlet;
 
+import dao.UserTempDAO;
 import dao.UsuarioDAO;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
+import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.UserTemp;
 import model.Usuario;
 
 /**
@@ -24,25 +25,37 @@ import model.Usuario;
 @WebServlet(name = "CadastraUsuarioServlet", urlPatterns = {"/CadastraUsuarioServlet"})
 public class CadastraUsuarioServlet extends HttpServlet {
 
+    UserTemp userTemp;
+
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            
-        System.out.println("Email confirmado.");
-                
-//        Usuario usuario = new Usuario();
-//
-//        usuario.setEmail(req.getParameter("email"));
-//        usuario.setNome(req.getParameter("nome"));
-//        usuario.setSenha(req.getParameter("senha"));
-//
-//        UsuarioDAO dao = new UsuarioDAO();
-//        dao.inserir(usuario);
 
+        PrintWriter out = resp.getWriter();
+
+        UserTemp userTemp = new UserTemp();
+
+        UserTempDAO dao = new UserTempDAO();
+
+        String email = String.valueOf(dao.buscarEmail(req.getParameter("codigo"))).replace("[","").replace("]","");
+        String nome = String.valueOf(dao.buscarNome(req.getParameter("codigo"))).replace("[","").replace("]","");
+        String senha = String.valueOf(dao.buscarSenha(req.getParameter("codigo"))).replace("[","").replace("]","");
         
-       // System.out.println("Cadastro realizado!");
-        
+        userTemp.setEmail(email);
+        userTemp.setNome(nome);
+        userTemp.setSenha(senha);
+
+        Usuario usuario = new Usuario();
+
+        usuario.setEmail(userTemp.getEmail());
+        usuario.setNome(userTemp.getNome());
+        usuario.setSenha(userTemp.getSenha());
+
+        UsuarioDAO dao2 = new UsuarioDAO();
+        dao2.inserir(usuario);
+        System.out.println("Usuário cadastrado!");
+
+        out.println("Você foi cadastrado com sucesso!");
+
     }
-    
+
 }
-
-

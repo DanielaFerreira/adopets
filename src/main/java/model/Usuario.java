@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 public class Usuario implements Serializable {
 
-    @Id
+    @Id    
     private String email;
 
     private String nome;
@@ -27,14 +27,6 @@ public class Usuario implements Serializable {
 
     private String foto;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -43,6 +35,14 @@ public class Usuario implements Serializable {
         this.email = email;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
     public String getSenha() {
         return senha;
     }

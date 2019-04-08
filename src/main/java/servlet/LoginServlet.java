@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
         if (!usuarios.isEmpty()) {
             out.println("Bem-vindo!");
             resp.setContentType("text/html");
-            String pagina = "http://localhost:8084/adopets/perfil_usuario.html";
+            String pagina = "http://localhost:8084/adopets/visao_geral.html";
             resp.sendRedirect(pagina);
         } else {
             out.println("Cadastro inexistente.");

@@ -53,9 +53,8 @@ public class CadastraUsuarioServlet extends HttpServlet {
         UsuarioDAO dao2 = new UsuarioDAO();
         dao2.inserir(usuario);
         System.out.println("Usuário cadastrado!");
-
+       
         out.println("Você foi cadastrado com sucesso!");
-
     }
 
 }

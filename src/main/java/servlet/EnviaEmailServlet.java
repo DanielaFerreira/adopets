@@ -33,7 +33,7 @@ public class EnviaEmailServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
         List<Usuario> usuarios;
 
-        if (req.getParameter("email") != null && req.getParameter("nome") != null && req.getParameter("senha") != null) {
+        if (!"".equals(req.getParameter("email")) && !"".equals(req.getParameter("nome")) && !"".equals(req.getParameter("senha"))) {
             Usuario usuario = new Usuario();
 
             usuario.setEmail(req.getParameter("email"));

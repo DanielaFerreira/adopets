@@ -53,5 +53,16 @@ public class UsuarioDAO {
 
         return query.list();
     }
+    
+    public List<Usuario> buscar3(String email) {
+        Query query;
+        Session s = HibernateUtil.getSessionFactory().openSession();
+
+        String hql = "from Usuario u where u.email like :email";
+        query = s.createQuery(hql)
+                .setParameter("email", email);
+
+        return query.list();
+    } 
 
 }

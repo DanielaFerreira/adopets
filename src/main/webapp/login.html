@@ -10,6 +10,9 @@
         <script src="./node_modules/popper.js/dist/umd/popper.min.js"></script>
         <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="formularios.css" type="text/css">
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="27222478082-qv8o9tcgqvshk48futcnir1t1mv1hs3v.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
     </head>
     <body class="bg">
 
@@ -31,7 +34,8 @@
 
                     <div class="form-group">
                         <a href="doacao.html" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Entre via Facebook</a>
-                        <a href="" class="btn btn-block btn-outline-danger"> <i class="fab fa-google"></i>   Entre via Gmail</a>
+                        <!--<a href="" class="btn btn-block btn-outline-danger"> <i class="fab fa-google"></i>   Entre via Gmail</a>-->
+                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-width="370" data-height="50" data-longtitle="true" data-lang="pt-BR" style="padding-top: 10px;"></div>
                     </div>
 
                     <center>ou</center>

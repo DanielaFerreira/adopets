@@ -9,7 +9,6 @@ import dao.UserTempDAO;
 import dao.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,8 +23,6 @@ import model.Usuario;
  */
 @WebServlet(name = "CadastraUsuarioServlet", urlPatterns = {"/CadastraUsuarioServlet"})
 public class CadastraUsuarioServlet extends HttpServlet {
-
-    UserTemp userTemp;
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -1,8 +1,8 @@
-model/Usuario_.class
-servlet/CadastraUsuarioServlet.class
-util/CommonsMail.class
 model/Usuario.class
-util/HibernateUtil.class
 servlet/EnviaEmailServlet.class
 dao/UsuarioDAO.class
 servlet/LoginServlet.class
+model/Usuario_.class
+servlet/CadastraUsuarioServlet.class
+util/CommonsMail.class
+util/HibernateUtil.class

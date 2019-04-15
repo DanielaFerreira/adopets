@@ -34,8 +34,8 @@ $(document).ready(function () {
     });
 });
 
-//Usada para autenticar cadastro ou login
-function onSignIn(response) {
+//cadastro do Gmail
+function onSignUp(response) {
     // Conseguindo as informações do seu usuário:
     var profile = response.getBasicProfile();
 
@@ -47,14 +47,35 @@ function onSignIn(response) {
     console.log('Given Name: ' + profile.getGivenName());
     console.log('Family Name: ' + profile.getFamilyName());
     console.log('Image URL: ' + profile.getImageUrl());
-    var email = console.log('Email: ' + profile.getEmail());
+    console.log('Email: ' + profile.getEmail());
 
-//    $(document).ready(function () {
-//       
-//            var email1 = $(email).val(); 
-//                    $.get('LoginGmailServlet', {user: email1});
-//        
-//    });
+    var email1 = profile.getEmail();
+
+    $(document).ready(function () {
+        $.get('CadastraGmailUsuarioServlet', {email: email1});
+
+    });
+}
+
+//login do Gmail
+function onSignIn(response) {
+    var profile = response.getBasicProfile();
+    
+    var LoR = response.getAuthResponse().id_token;
+    console.log("~ le Tolkien: " + LoR);
+
+    console.log('Full Name: ' + profile.getName());
+    console.log('Given Name: ' + profile.getGivenName());
+    console.log('Family Name: ' + profile.getFamilyName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail());
+
+    var email1 = profile.getEmail();
+
+    $(document).ready(function () {
+        $.get('LoginGmailServlet', {email: email1});
+
+    });
 }
 
 //chamada de servlet
@@ -84,7 +105,7 @@ function onSignIn(response) {
 
 //indicação para a animação do login ativar
 $('input[type="password"]').on('focus', () => {
-  $('*').addClass('password');
+    $('*').addClass('password');
 }).on('focusout', () => {
-  $('*').removeClass('password');
+    $('*').removeClass('password');
 });

@@ -14,21 +14,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Usuario;
-
 /**
  *
  * @author eduardo
  */
 public class LoginGmailServlet extends HttpServlet {
-
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
-
+    
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+               
         UsuarioDAO dao = new UsuarioDAO();
 
         List<Usuario> usuarios;
@@ -36,33 +31,17 @@ public class LoginGmailServlet extends HttpServlet {
         usuarios = dao.buscar3(request.getParameter("email"));
 
         System.out.println(request.getParameter("email"));
-       
+
         System.out.println(usuarios);
 
         PrintWriter out = response.getWriter();
 
         if (!usuarios.isEmpty()) {
-//            out.println("Bem-vindo!");
-            System.out.println("Conta existente.");
-            response.setContentType("text/html");
-            String pagina = "http://localhost:8084/adopets/visao_geral.html";
-            response.sendRedirect(pagina);
+            response.sendRedirect("../adopets/visao_geral.html");
         } else {
-//            out.println("Cadastro inexistente.");
-            System.out.println("Cadastro inexistente.");
+            out.println("Conta inexistente.");
         }
-
+    
     }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-    }
-
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
+    
 }

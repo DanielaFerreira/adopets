@@ -29,29 +29,29 @@ public class CadastraUsuarioServlet extends HttpServlet {
 
         PrintWriter out = resp.getWriter();
 
-        UserTemp userTemp = new UserTemp();
-
         UserTempDAO dao = new UserTempDAO();
 
-        String email = String.valueOf(dao.buscarEmail(req.getParameter("codigo"))).replace("[","").replace("]","");
-        String nome = String.valueOf(dao.buscarNome(req.getParameter("codigo"))).replace("[","").replace("]","");
-        String senha = String.valueOf(dao.buscarSenha(req.getParameter("codigo"))).replace("[","").replace("]","");
-        
-        userTemp.setEmail(email);
-        userTemp.setNome(nome);
-        userTemp.setSenha(senha);
+        if (String.valueOf(dao.buscarCodigo(req.getParameter("codigo"))).replace("[", "").replace("]", "").equals(req.getParameter("codigo"))) {
+            String email = String.valueOf(dao.buscarEmail(req.getParameter("codigo"))).replace("[", "").replace("]", "");
+            String nome = String.valueOf(dao.buscarNome(req.getParameter("codigo"))).replace("[", "").replace("]", "");
+            String senha = String.valueOf(dao.buscarSenha(req.getParameter("codigo"))).replace("[", "").replace("]", "");
 
-        Usuario usuario = new Usuario();
+            Usuario usuario = new Usuario();
 
-        usuario.setEmail(userTemp.getEmail());
-        usuario.setNome(userTemp.getNome());
-        usuario.setSenha(userTemp.getSenha());
+            usuario.setEmail(email);
+            usuario.setNome(nome);
+            usuario.setSenha(senha);
 
-        UsuarioDAO dao2 = new UsuarioDAO();
-        dao2.inserir(usuario);
-        System.out.println("Usuário cadastrado!");
-       
-        out.println("Você foi cadastrado com sucesso!");
+            UsuarioDAO dao2 = new UsuarioDAO();
+            dao2.inserir(usuario);
+            System.out.println("Usuário cadastrado!");
+
+            out.println("Você foi cadastrado com sucesso!");
+
+            dao.excluir(email);//com erro - nao ta excluindo
+        } else {
+            out.println("Digite um código válido.");
+        }
     }
 
 }

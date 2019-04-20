@@ -9,6 +9,44 @@
         <meta name="google-signin-scope" content="profile email">
         <meta name="google-signin-client_id" content="27222478082-qv8o9tcgqvshk48futcnir1t1mv1hs3v.apps.googleusercontent.com">
         <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        <script src="https://apis.google.com/js/api:client.js"></script>
+        <script>
+            var googleUser = {};
+            var startApp = function () {
+                gapi.load('auth2', function () {
+                    auth2 = gapi.auth2.init({
+                        client_id: '27222478082-qv8o9tcgqvshk48futcnir1t1mv1hs3v.apps.googleusercontent.com',
+                        cookiepolicy: 'single_host_origin',
+                    });
+                    attachSignin(document.getElementById('customBtn'));
+                });
+            };
+
+            function attachSignin(element) {
+                console.log(element.id);
+                auth2.attachClickHandler(element, {},
+                        function (googleUser) {
+                            var profile = googleUser.getBasicProfile();
+
+//                            var LoR = googleUser.getAuthResponse().id_token;
+//                            console.log("~ le Tolkien: " + LoR);
+
+                            var email = profile.getEmail();
+                            var nome = profile.getName();
+                            var foto = profile.getImageUrl();
+
+                            var redirectUrl = 'CadastraGmailUsuarioServlet';
+//
+                            var form = $('<form action="' + redirectUrl + '" method="post">'
+                                    + '<input type="text" name="email" value="' + email + '" />' 
+                                    + '<input type="text" name="nome" value="' + nome + '" />' + '</form>');
+                            $('body').append(form);
+                            form.submit();
+                        }, function (error) {
+                    alert(JSON.stringify(error, undefined, 2));
+                });
+            }
+        </script>
     </head>
     <body class="bg">
         <div id="header"></div>
@@ -27,26 +65,31 @@
 
                     <div class="form-group">
                         <a href="doacao.html" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Cadastre-se via Facebook</a>
-                        <!--<div class="btn btn-block btn-outline-danger" data-onsuccess="onSignIn"> <i class="fab fa-google"></i>   Cadastre-se via Gmail</div>-->
-                        <div class="g-signin2" data-onsuccess="onSignUp" data-theme="dark" data-width="370" data-height="50" data-longtitle="true" data-lang="pt-BR" style="padding-top: 10px;"></div>
+                        <div id="gSignInWrapper">
+                            <div id="customBtn" class="btn btn-block btn-outline-danger">
+                                <span class="fab fa-google"></span>
+                                <span id="buttonText">Cadastrar-se com Google</span>
+                            </div>
+                        </div>
+                        <script>startApp();</script>
                     </div>
 
                     <center>ou</center>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Digite seu email</label>
-                        <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+                        <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email" required onchange="this.value = this.value.trim()">
                         <small id="emailHelp" class="form-text text-muted">Seu e-mail não será compartilhado.</small>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputNome">Digite seu nome</label>
-                        <input name="nome" type="text" class="form-control" aria-describedby="nameHelp" placeholder="Nome">
+                        <input name="nome" type="text" class="form-control" aria-describedby="nameHelp" placeholder="Nome" required onchange="this.value = this.value.trim()">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Digite sua senha</label>
                         <div class="input-group">
-                            <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capsLock(event)">
+                            <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capsLock(event)" required onchange="this.value = this.value.trim()">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <a href="#" class="text-dark" id="icon-click">

@@ -20,6 +20,10 @@ $(function () {
     $("#header").load("header.html");
 });
 
+$(function () {
+    $("#header_logado").load("header_logado.html");
+});
+
 //exibe ou esconde o campo de senha
 $(document).ready(function () {
     $("#icon-click").click(function () {
@@ -33,50 +37,6 @@ $(document).ready(function () {
         }
     });
 });
-
-//cadastro do Gmail
-function onSignUp(response) {
-    // Conseguindo as informações do seu usuário:
-    var profile = response.getBasicProfile();
-
-    // Recebendo o TOKEN que você usará nas demais requisições à API:
-    var LoR = response.getAuthResponse().id_token;
-    console.log("~ le Tolkien: " + LoR);
-
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail());
-
-    var email1 = profile.getEmail();
-
-    $(document).ready(function () {
-        $.get('CadastraGmailUsuarioServlet', {email: email1});
-
-    });
-}
-
-//login do Gmail
-function onSignIn(response) {
-    var profile = response.getBasicProfile();
-    
-    var LoR = response.getAuthResponse().id_token;
-    console.log("~ le Tolkien: " + LoR);
-
-    console.log('Full Name: ' + profile.getName());
-    console.log('Given Name: ' + profile.getGivenName());
-    console.log('Family Name: ' + profile.getFamilyName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail());
-
-    var email1 = profile.getEmail();
-
-    $(document).ready(function () {
-        $.get('LoginGmailServlet', {email: email1});
-
-    });
-}
 
 //chamada de servlet
 //var xhr = new XMLHttpRequest();

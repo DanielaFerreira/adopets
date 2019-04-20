@@ -13,9 +13,44 @@
         <meta name="google-signin-scope" content="profile email">
         <meta name="google-signin-client_id" content="27222478082-qv8o9tcgqvshk48futcnir1t1mv1hs3v.apps.googleusercontent.com">
         <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        <script src="https://apis.google.com/js/api:client.js"></script>
+        <script>
+            var googleUser = {};
+            var startApp = function () {
+                gapi.load('auth2', function () {
+                    auth2 = gapi.auth2.init({
+                        client_id: '27222478082-qv8o9tcgqvshk48futcnir1t1mv1hs3v.apps.googleusercontent.com',
+                        cookiepolicy: 'single_host_origin',
+                    });
+                    attachSignin(document.getElementById('customBtn'));
+                });
+            };
+
+            function attachSignin(element) {
+                console.log(element.id);
+                auth2.attachClickHandler(element, {},
+                        function (googleUser) {
+                            var profile = googleUser.getBasicProfile();
+
+//                            var LoR = googleUser.getAuthResponse().id_token;
+//                            console.log("~ le Tolkien: " + LoR);
+
+                            var email = profile.getEmail();
+
+                            var redirectUrl = 'LoginGmailServlet';
+
+                            var form = $('<form action="' + redirectUrl + '" method="post">'
+                                    + '<input type="text" name="email" value="'
+                                    + email + '" />' + '</form>');
+                            $('body').append(form);
+                            form.submit();
+                        }, function (error) {
+                    alert(JSON.stringify(error, undefined, 2));
+                });
+            }
+        </script>
     </head>
     <body class="bg">
-
 
         <div id="header"></div>
 
@@ -34,21 +69,26 @@
 
                     <div class="form-group">
                         <a href="doacao.html" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Entre via Facebook</a>
-                        <!--<a href="" class="btn btn-block btn-outline-danger"> <i class="fab fa-google"></i>   Entre via Gmail</a>-->
-                        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" data-width="370" data-height="50" data-longtitle="true" data-lang="pt-BR" style="padding-top: 10px;"></div>
+                        <div id="gSignInWrapper">
+                            <div id="customBtn" class="btn btn-block btn-outline-danger">
+                                <span class="fab fa-google"></span>
+                                <span id="buttonText">Entrar com Google</span>
+                            </div>
+                        </div>
+                        <script>startApp();</script>
                     </div>
 
                     <center>ou</center>
 
                     <div class="form-group">
                         <label>Digite seu email</label>
-                        <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Email" required onchange="this.value = this.value.trim()">
                     </div>
 
                     <div class="form-group">
                         <label for="exampleInputPassword1">Digite sua senha</label>
                         <div class="input-group">
-                            <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capsLock(event)">
+                            <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capsLock(event)" required onchange="this.value = this.value.trim()">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
                                     <a href="#" class="text-dark" id="icon-click">

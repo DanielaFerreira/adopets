@@ -1,48 +1,58 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package servlet;
 
+import dao.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Usuario;
-import dao.UsuarioDAO;
-import java.util.List;
 
 /**
  *
  * @author eduardo
  */
-@WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
 
-    List<Usuario> usuarios;
-
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+
+        PrintWriter out = response.getWriter();
+        
+        List<Usuario> usuarios;
 
         Usuario usuario = new Usuario();
 
-        usuario.setEmail(req.getParameter("email"));
-        usuario.setSenha(req.getParameter("senha"));
+        if (!"".equals(request.getParameter("email")) && !"".equals(request.getParameter("senha"))) {
 
-        UsuarioDAO dao = new UsuarioDAO();
+            usuario.setEmail(request.getParameter("email"));
+            usuario.setSenha(request.getParameter("senha"));
 
-        usuarios = dao.buscar(usuario);
+            UsuarioDAO dao = new UsuarioDAO();
 
-        PrintWriter out = resp.getWriter();
+            usuarios = dao.buscar(usuario);
 
-        if (!usuarios.isEmpty()) {
-            out.println("Bem-vindo!");
-            resp.setContentType("text/html");
-            String pagina = "http://localhost:8084/adopets/visao_geral.html";
-            resp.sendRedirect(pagina);
+            if (!usuarios.isEmpty()) {
+                out.println("Bem-vindo!");
+                response.setContentType("text/html");
+                String pagina = "../adopets/visao_geral.jsp";
+                request.setAttribute("email", request.getParameter("email"));
+                response.sendRedirect(pagina);
+            } else {
+                out.println("Cadastro inexistente.");
+            }
         } else {
-            out.println("Cadastro inexistente.");
+            out.println("Volte e complete o formulário.");
         }
-
     }
 
 }

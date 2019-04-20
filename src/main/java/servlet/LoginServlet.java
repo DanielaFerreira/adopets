@@ -9,6 +9,7 @@ import dao.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,7 +44,8 @@ public class LoginServlet extends HttpServlet {
             if (!usuarios.isEmpty()) {
                 out.println("Bem-vindo!");
                 response.setContentType("text/html");
-                String pagina = "../adopets/visao_geral.html";
+                String pagina = "../adopets/visao_geral.jsp";
+                request.setAttribute("email", request.getParameter("email"));
                 response.sendRedirect(pagina);
             } else {
                 out.println("Cadastro inexistente.");

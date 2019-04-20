@@ -20,6 +20,10 @@ $(function () {
     $("#header").load("header.html");
 });
 
+$(function () {
+    $("#header_logado").load("header_logado.html");
+});
+
 //exibe ou esconde o campo de senha
 $(document).ready(function () {
     $("#icon-click").click(function () {

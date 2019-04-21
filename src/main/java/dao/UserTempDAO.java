@@ -6,12 +6,10 @@
 package dao;
 
 import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import model.UserTemp;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 import util.HibernateUtil;
 
 /**
@@ -19,21 +17,6 @@ import util.HibernateUtil;
  * @author eduardo
  */
 public class UserTempDAO {
-
-    private EntityManager getEntityManager() {
-        EntityManagerFactory factory = null;
-        EntityManager entityManager = null;
-        try {
-            //Obtém o factory a partir da unidade de persistência.
-            factory = Persistence.createEntityManagerFactory("adopetsPU");
-            //Cria um entity manager.
-            entityManager = factory.createEntityManager();
-            //Fecha o factory para liberar os recursos utilizado.
-        } finally {
-            factory.close();
-        }
-        return entityManager;
-    }
 
     public void inserir(UserTemp userTemp) {
         //cria e abre sessao
@@ -86,7 +69,7 @@ public class UserTempDAO {
 
         return query.list();
     }
-    
+
     public List<UserTemp> buscarCodigo(String codigo) {
         Query query;
         Session s = HibernateUtil.getSessionFactory().openSession();
@@ -98,20 +81,19 @@ public class UserTempDAO {
         return query.list();
     }
 
-    public void excluir(String email) {
-        EntityManager entityManager = getEntityManager();
-        try {
-            // Inicia uma transação com o banco de dados.
-            entityManager.getTransaction().begin();
-            // Consulta a pessoa na base de dados através do seu ID.
-            UserTemp userTemp = entityManager.find(UserTemp.class, email);
-            // Remove a pessoa da base de dados.
-            entityManager.remove(userTemp);
-            // Finaliza a transação.
-            entityManager.getTransaction().commit();
-        } finally {
-            entityManager.close();
-        }
+    public static void excluir(String email) {
+        Session s = HibernateUtil.getSessionFactory().openSession();
+        Transaction tx = s.beginTransaction();
+
+        String hql = "delete from UserTemp u where u.email = :email";
+
+        Query query = s.createQuery(hql);
+        query.setString("email", email);  
+        query.executeUpdate();
+
+        tx.commit();
+        s.close();
+
     }
 
 }

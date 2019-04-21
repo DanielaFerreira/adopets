@@ -10,13 +10,11 @@
         <title>Adopets: Visão geral</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="stylesheet" href="../css/bootstrap-fileupload/bootstrap-fileupload.css">
-        <script src="../js/jquery/dist/jquery.min.js"></script>
-        <script src="../js/popper.js/dist/umd/popper.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="../css/visao_geral.css" type="text/css">
         <link rel="stylesheet" href="../css/formularios.css" type="text/css">
+        <script src="../js/jquery/dist/jquery.min.js"></script>
+        <script src="../js/popper.js/dist/umd/popper.min.js"></script>
     </head>
     <body>
 

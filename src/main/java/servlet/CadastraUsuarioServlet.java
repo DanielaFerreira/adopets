@@ -47,7 +47,7 @@ public class CadastraUsuarioServlet extends HttpServlet {
 
             out.println("Você foi cadastrado com sucesso!");
 
-            dao.excluir(email);//com erro - nao ta excluindo
+            UserTempDAO.excluir(email);
         } else {
             out.println("Digite um código válido.");
         }

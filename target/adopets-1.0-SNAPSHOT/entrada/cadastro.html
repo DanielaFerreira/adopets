@@ -35,7 +35,7 @@
                             var nome = profile.getName();
                             var foto = profile.getImageUrl();
 
-                            var redirectUrl = 'CadastraGmailUsuarioServlet';
+                            var redirectUrl = '/adopets/CadastraGmailUsuarioServlet';
 //
                             var form = $('<form action="' + redirectUrl + '" method="post">'
                                     + '<input type="text" name="email" value="' + email + '" />' 
@@ -54,7 +54,7 @@
         <div class="card col-md-4 offset-md-7" style="margin-top: 16px;">
             <div class="card-body">
 
-                <form class="form-sign-up" action="EnviaEmailServlet" method="post">
+                <form class="form-sign-up" action="/adopets/EnviaEmailServlet" method="post">
                     <div class="offset">
                         <div class="col-12 narrow text-center">
                             <h3>Cadastre-se gratuitamente!</h3>
@@ -64,7 +64,7 @@
 
 
                     <div class="form-group">
-                        <a href="doacao.html" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Cadastre-se via Facebook</a>
+                        <a href="" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Cadastre-se via Facebook</a>
                         <div id="gSignInWrapper">
                             <div id="customBtn" class="btn btn-block btn-outline-danger">
                                 <span class="fab fa-google"></span>

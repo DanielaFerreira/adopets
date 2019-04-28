@@ -37,7 +37,7 @@ public class LoginGmailServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         if (!usuarios.isEmpty()) {
-            response.sendRedirect("../adopets/visao_geral.html");
+            response.sendRedirect("../adopets/usuario_comum/visao_geral.html");
         } else {
             out.println("Conta inexistente.");
         }

@@ -20,14 +20,12 @@ and open the template in the editor.
 /* Import fonts */
 @import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
 
-
 body {
     background: white;/*#565656;*/
     padding-top: 60px !important;
     color: #333;
     font-family: 'Ruda', sans-serif;
 }
-
 
 /* Profile container */
 .profile {
@@ -137,7 +135,7 @@ body {
 }
 
 .visao_geral{
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .card{

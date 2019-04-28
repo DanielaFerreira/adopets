@@ -24,6 +24,10 @@ $(function () {
     $("#header_logado").load("../padroes/header_logado.html");
 });
 
+$(function () {
+    $("#footer").load("../padroes/footer.html");
+});
+
 //exibe ou esconde o campo de senha
 $(document).ready(function () {
     $("#icon-click").click(function () {

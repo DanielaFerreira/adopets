@@ -1,0 +1,100 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19/04/2019, 13:42:26
+    Author     : daniela
+*/
+
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06/04/2019, 16:21:54
+    Author     : daniela
+*/
+/* Import fonts */
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+
+
+body {
+    background: white;/*#565656;*/
+    padding-top: 60px !important;
+    color: #333;
+    font-family: 'Ruda', sans-serif;
+}
+
+td, th{
+    lin: 1px solid #DCEBF7;
+}
+
+.perfil_animal{
+    margin-top: 30px;
+}
+
+.sideimg{
+    margin-top: 10px;
+}
+
+.card{
+    max-width: 15rem;    
+}
+
+.tab-content{
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+h6{
+    text-align: center;
+}
+
+.aga4{
+    color: #B37D4E;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.aga5{
+    color: #B37D4E;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.btn-danger{
+    background: #AF473C;
+}
+
+.btn{
+    margin-top: 20px;
+}
+
+.form-panel{
+    align-items: center;
+}
+
+label{
+    text-align: right; 
+}
+
+.badges:nth-child(1) span{ background: #984B43; }
+.badges:nth-child(2) span{ background: #AF473C; }
+.badges:nth-child(3) span { background: #D4953C; }
+.badges:nth-child(4) span { background: #609491; }
+
+.th_header{
+    color: #B37D4E;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+img{
+    border-radius: 10px;
+}

@@ -14,16 +14,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Usuario;
+
 /**
  *
  * @author eduardo
  */
 public class LoginGmailServlet extends HttpServlet {
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-               
+
         UsuarioDAO dao = new UsuarioDAO();
 
         List<Usuario> usuarios;
@@ -39,9 +40,19 @@ public class LoginGmailServlet extends HttpServlet {
         if (!usuarios.isEmpty()) {
             response.sendRedirect("../adopets/usuario_comum/visao_geral.html");
         } else {
-            out.println("Conta inexistente.");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Adopets</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<script language = 'JavaScript'>");
+            out.println("    alert('Cadastro inexistente'); window.location.href='../adopets/entrada/login.html';");
+            out.println(" </script>");
+            out.println("</body>");
+            out.println("</html>");
+            out.close();
         }
-    
+
     }
-    
+
 }

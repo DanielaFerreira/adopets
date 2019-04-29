@@ -4,114 +4,174 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 17/03/2019, 23:50:14
+    Created on : 19/04/2019, 13:42:26
     Author     : daniela
 */
 
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 06/04/2019, 16:21:54
+    Author     : daniela
+*/
+/* Import fonts */
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+
 body {
-  background: #F1F3FA;
+    background: white;/*#565656;*/
+    padding-top: 60px !important;
+    color: #333;
+    font-family: 'Ruda', sans-serif;
 }
 
 /* Profile container */
 .profile {
-  margin: 20px 0;
+    margin: 20px 0;
+    left: 10px;
 }
 
 /* Profile sidebar */
 .profile-sidebar {
-  padding: 20px 0 10px 0;
-  background: #fff;
+    padding: 20px 0 10px 0;
+    background: #fff;
 }
 
 .profile-userpic img {
-  float: none;
-  margin: 0 auto;
-  width: 50%;
-  height: 50%;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
+    float: none;
+    margin: 0 auto;
+    width: 50%;
+    height: 50%;
+    -webkit-border-radius: 50% !important;
+    -moz-border-radius: 50% !important;
+    border-radius: 50% !important;
 }
 
 .profile-usertitle {
-  text-align: center;
-  margin-top: 20px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .profile-usertitle-name {
-  color: #5a7391;
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 7px;
-}
-
-.profile-usertitle-job {
-  text-transform: uppercase;
-  color: #5b9bd1;
-  font-size: 12px;
-  font-weight: 600;
-  margin-bottom: 15px;
+    color: #5a7391;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 7px;
 }
 
 .profile-userbuttons {
-  text-align: center;
-  margin-top: 10px;
+    text-align: center;
+    margin-top: 10px;
 }
 
-.profile-userbuttons .btn {
-  text-transform: uppercase;
-  font-size: 11px;
-  font-weight: 600;
-  padding: 6px 15px;
-  margin-right: 5px;
-}
-
-.profile-userbuttons .btn:last-child {
-  margin-right: 0px;
-}
-    
 .profile-usermenu {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
-.profile-usermenu ul li {
-  border-bottom: 1px solid #f0f4f7;
+.nav-tabs>a, .nav-tabs>a:focus{
+    color: #999;
+    border-top: 2px solid #0069d9;
 }
 
-.profile-usermenu ul li:last-child {
-  border-bottom: none;
+/*Theme Buttons*/
+
+
+.btn-theme02 {
+    color: #fff;
+    background-color: #4C8FBD;
+    border-color: #286DA8;
+}
+.btn-theme02:hover,
+.btn-theme02:focus,
+.btn-theme02:active,
+.btn-theme02.active,
+.open .dropdown-toggle.btn-theme02 {
+    color: #fff;
+    background-color: #138496;
+    border-color: #438496;
 }
 
-.profile-usermenu ul li a {
-  color: #93a3b5;
-  font-size: 14px;
-  font-weight: 400;
+.btn-theme04 {
+    color: #fff;
+    background-color: #CF6766;
+    border-color: #CD5660;
+}
+.btn-theme04:hover,
+.btn-theme04:focus,
+.btn-theme04:active,
+.btn-theme04.active,
+.open .dropdown-toggle.btn-theme04 {
+    color: #fff;
+    background-color: #da4453;
+    border-color: #da4453;
 }
 
-.profile-usermenu ul li a i {
-  margin-right: 8px;
-  font-size: 14px;
+.tabs-left {
+    border-bottom: none;
+    padding-top: 2px;
+    border-right: 1px solid #ddd;
+    display: block;
+    float: inside;
 }
 
-.profile-usermenu ul li a:hover {
-  background-color: #fafcfd;
-  color: #5b9bd1;
+.nav{
+    margin-top: 25px;
 }
 
-.profile-usermenu ul li.active {
-  border-bottom: none;
+
+.tabs-left a.active:link,
+.tabs-left a.active:active,
+.tabs-left a.active:visited{
+    float: none;
+    margin-bottom: 2px;
+    margin-right: -1px;
+    border-right-color: transparent;
+    border-bottom-color: #ddd;
+    border-left: 4px solid #4C8FBD;
+    border-radius: 4px 0 0 4px;
+    display:block;
 }
 
-.profile-usermenu ul li.active a {
-  color: #5b9bd1;
-  background-color: #f6f9fb;
-  border-left: 2px solid #5b9bd1;
-  margin-left: -2px;
+.doacao{
+    margin-top: 40px;
 }
 
-/* Profile Content */
-.profile-content {
-  padding: 20px;
-  background: #fff;
-  min-height: 460px;
+.card{
+    max-width: 15rem;    
 }
+
+.tab-content{
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+h4{
+    color: #B37D4E;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn-danger{
+    background: #AF473C;
+}
+
+.btn-primary{
+    
+}
+
+.form-panel{
+    align-items: center;
+}
+
+label{
+    text-align: right; 
+}
+
+.badges:nth-child(1) span{ background: #984B43; }
+.badges:nth-child(2) span{ background: #AF473C; }
+.badges:nth-child(3) span { background: #D4953C; }
+.badges:nth-child(4) span { background: #609491; }
+

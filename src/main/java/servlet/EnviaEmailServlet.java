@@ -43,7 +43,18 @@ public class EnviaEmailServlet extends HttpServlet {
             usuarios = dao.buscar2(usuario);
 
             if (!usuarios.isEmpty()) {
-                out.println("Conta já existente."); 
+
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Adopets</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<script language = 'JavaScript'>");
+                out.println("    alert('Conta já existente, tente outra.'); window.location.href='../adopets/entrada/cadastro.html';");
+                out.println(" </script>");
+                out.println("</body>");
+                out.println("</html>");
+                out.close();
 
             } else {
 
@@ -67,12 +78,22 @@ public class EnviaEmailServlet extends HttpServlet {
 
                         UserTempDAO dao2 = new UserTempDAO();
                         dao2.inserir(userTemp);
-                        
+
                         System.out.println("Usuário temporário cadastrado.");
 
                         CommonsMail.enviarEmail(req.getParameter("email"), codigo);
 
-                        out.println("Enviamos código de confirmação de conta para o seu email!");
+                        out.println("<html>");
+                        out.println("<head>");
+                        out.println("<title>Adopets</title>");
+                        out.println("</head>");
+                        out.println("<body>");
+                        out.println("<script language = 'JavaScript'>");
+                        out.println("    alert('Enviamos código de confirmação de conta para o seu email!'); window.location.href='../adopets/entrada/cadastro.html';");
+                        out.println(" </script>");
+                        out.println("</body>");
+                        out.println("</html>");
+                        out.close();
                     } catch (NoSuchAlgorithmException e) {
                     }
 
@@ -82,8 +103,6 @@ public class EnviaEmailServlet extends HttpServlet {
 
             }
 
-        } else {
-            out.println("Volte e complete o formulário.");
         }
 
     }

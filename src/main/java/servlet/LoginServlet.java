@@ -25,8 +25,9 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        
+
         List<Usuario> usuarios;
 
         Usuario usuario = new Usuario();
@@ -42,15 +43,22 @@ public class LoginServlet extends HttpServlet {
 
             if (!usuarios.isEmpty()) {
                 out.println("Bem-vindo!");
-                response.setContentType("text/html");
                 String pagina = "../adopets/usuario_comum/visao_geral.jsp";
                 request.setAttribute("email", request.getParameter("email"));
                 response.sendRedirect(pagina);
             } else {
-                out.println("Cadastro inexistente.");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Adopets</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<script language = 'JavaScript'>");
+                out.println("    alert('Cadastro inexistente'); window.location.href='../adopets/entrada/login.html';");
+                out.println(" </script>");
+                out.println("</body>");
+                out.println("</html>");
+                out.close();
             }
-        } else {
-            out.println("Volte e complete o formulário.");
         }
     }
 

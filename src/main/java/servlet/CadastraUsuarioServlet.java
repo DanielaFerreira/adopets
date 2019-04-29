@@ -45,11 +45,31 @@ public class CadastraUsuarioServlet extends HttpServlet {
             dao2.inserir(usuario);
             System.out.println("Usuário cadastrado!");
 
-            out.println("Você foi cadastrado com sucesso!");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Adopets</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<script language = 'JavaScript'>");
+            out.println("    alert('Você foi cadastrado com sucesso!'); window.location.href='../adopets/entrada/login.html';");
+            out.println(" </script>");
+            out.println("</body>");
+            out.println("</html>");
+            out.close();
 
             UserTempDAO.excluir(email);
         } else {
-            out.println("Digite um código válido.");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Adopets</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<script language = 'JavaScript'>");
+            out.println("    alert('Digite um código válido'); window.location.href='../adopets/entrada/confirmacaoConta.html';");
+            out.println(" </script>");
+            out.println("</body>");
+            out.println("</html>");
+            out.close();
         }
     }
 

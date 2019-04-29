@@ -73,3 +73,4 @@ $('input[type="password"]').on('focus', () => {
 }).on('focusout', () => {
     $('*').removeClass('password');
 });
+

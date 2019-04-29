@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Adopets</title>
+        <link rel="stylesheet" type="text/css" href="../css/adocao-estilo.css" />
+        <link rel="stylesheet" href="../padroes/header_logado.css" type="text/css">
+        <script src="../js/jquery/dist/jquery.min.js"></script>
+    </head>
+
+    <body>
+        <div id="header_logado"></div>
+
+        <div id="block1">
+            <h1 id="title1">HORA DE ADOTAR!</h1>
+            <h5>Você está quase lá!</h5>
+            <img id="cao" src="../img/dogPc.gif" alt="Cão em seu PC" style="margin-left: 70px; width: 400px; height: 300px; border-radius: 25px;">
+        </div>
+
+        <div id="blocoForm">
+            <form name="adocao">
+                <h2>Perguntas finais</h2>
+                <p>Quanto tempo esse animal de estimação estará interagindo com as crianças?<br>
+                    <select id="criancas">
+                        <option value=""></option>
+                        <option value="freq">Frequentemente</option>
+                        <option value="ocasiao">Ocasionalmente</option>
+                        <option value="sempre">Sempre</option>
+                        <option value="nenhum">Nenhum</option>
+                    </select>
+                </p>
+
+                <p>Você já possuiu este tipo de animal de estimação antes? (ex: gato, cachorro)<br>
+                    <select id="outroanimal">
+                        <option value=""></option>
+                        <option value="1">Sim, atualmente tenho esse tipo de animal de estimação</option>
+                        <option value="2">Sim, eu possuí esse tipo de animal de estimação no passado</option>
+                        <option value="3">Não, nunca tive esse tipo de animal de estimação</option>
+                    </select>
+                </p>
+
+                <p>Onde esse animal passará a maior parte do tempo?<br>
+                    <select id="tempo">
+                        <option value=""></option>
+                        <option value="casa">Dentro de casa</option>
+                        <option value="ar">Ao ar livre</option>
+                        <option value="ambos">Ambos</option>
+                    </select>
+                </p>
+
+                <p>Quer compartilhar mais alguma coisa?
+                    <textarea name="msg" ></textarea>
+
+                    <button type="submit">Enviar</button>
+            </form>
+        </div>
+        <script type="text/javascript" src="../js/index.js"></script>
+    </body>
+</html>

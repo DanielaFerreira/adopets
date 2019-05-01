@@ -43,12 +43,16 @@ textarea{
     left: 8%;
 }
 
-#title1, h5, #cao{
+#title1, h5{
     margin-left: auto;
     margin-right: auto;
     width: 500px;
     height: 60px;
     text-align: center;
+}
+
+#cao{
+    margin-top: 10px;
 }
 
 button{

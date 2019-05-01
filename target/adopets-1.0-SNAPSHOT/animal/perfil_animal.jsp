@@ -48,17 +48,18 @@
 
 
                 <!-- SIDEBAR BUTTONS -->
-                <center>
-                    <div class="badges">
-                        <span class="badge badge-primary">Cão</span>
-                        <span class="badge badge-danger">Boxer</span>
-                        <span class="badge badge-secondary">3 meses</span>
-                        <span class="badge badge-success">Macho</span>
-                    </div>
-                    <h6 style="margin-top: 20px;">Esperando um lar há 75 dias</h6>
-                    <button class="btn btn-success" type="submit">Adotar</button>
-                </center>
-
+                <form action="../usuario_comum/formAdocao.html">
+                    <center>
+                        <div class="badges">
+                            <span class="badge badge-primary">Cão</span>
+                            <span class="badge badge-danger">Boxer</span>
+                            <span class="badge badge-secondary">3 meses</span>
+                            <span class="badge badge-success">Macho</span>
+                        </div>
+                        <h6 style="margin-top: 20px;">Esperando um lar há 75 dias</h6>
+                        <button class="btn btn-success" type="submit">Adotar</button>
+                    </center>
+                </form>
 
             </div>
 
@@ -95,7 +96,7 @@
                         </td>
                     </tr>
                 </table>
-                
+
                 <hr>
 
                 <h5 class="aga5">Informações Adicionais</h5>

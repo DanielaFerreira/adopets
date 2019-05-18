@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Adopets: Confirmação de Conta</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <script src="../js/jquery/dist/jquery.min.js"></script>
+        <script src="../js/popper.js/dist/umd/popper.min.js"></script>
+        <script src="../js/bootstrap/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../css/formularios.css" type="text/css">
+    </head>
+    <body class="bg" style="background-color: #9fcdff">
+        <div class="d-flex align-items-center justify-content-center h-100">
+            <div class="card border-primary mx-auto">
+                <img class="card-img-top" src="../img/confirm.gif" alt="Imagem de capa do card">
+                <div class="card-body text-primary">
+                    <h5 class="card-title">É isso aí! Falta pouco...</h5>
+                    <p class="card-text">Para finalizar o cadastro da sua conta e juntar-se à nossa comunidade, informe o código enviado para o seu e-mail</p>
+                    <div class="alert alert-warning">
+                        <a class="close font-weight-light" data-dismiss="alert" href="#">×</a>O códido de confirmação não possui caracteres especiais.
+                    </div>
+                    <form action="/adopets/CadastraUsuarioServlet" method="post">
+                        <div class="form-group">
+                            <input name="codigo" type="text" pattern="[a-zA-Z0-9]+$" class="form-control" required onchange="this.value = this.value.trim()" placeholder="Código de confirmação">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Confirmar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript" src="../js/index.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+    </body>
+</html>

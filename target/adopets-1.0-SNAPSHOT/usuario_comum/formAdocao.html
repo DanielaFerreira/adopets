@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <title>Adopets</title>
+        <link rel="stylesheet" type="text/css" href="../css/adocao-estilo.css" />
+        <link rel="stylesheet" href="../padroes/header_logado.css" type="text/css">
+        <script src="../js/jquery/dist/jquery.min.js"></script>
+    </head>
+
+    <body>        
+        <div id="header_logado"></div>
+
+        <div id="block1">
+            <h1 id="title1">HORA DE ADOTAR!</h1>
+            <h5>Antes de enviar a sua solicitação de adoção, você precisa responder algumas perguntas...</h5>
+            <img id="cao" src="../img/dogPc.gif" alt="Cão em seu PC" style="margin-left: 70px; width: 400px; height: 300px; border-radius: 25px;">
+        </div>
+
+        <div id="blocoForm">
+            <form name="adocao" action="formAdocao2.html">
+                <h2>Perguntas sobre moradia</h2>
+                <p>Em que tipo de residência você mora atualmente?<br>
+                    <select id="local">
+                        <option value=""></option>
+                        <option value="dono">Casa (dono)</option>
+                        <option value="apartamento">Apartamento</option>
+                        <option value="condominio">Condomínio</option>
+                        <option value="alugado">Casa (alugada)</option>
+                    </select>
+                </p>
+
+                <p>Qual o nível de ruído da sua casa?<br>
+                    <select id="ruido">
+                        <option value=""></option>
+                        <option value="muitoquieto">Muito quieto</option>
+                        <option value="quieto">Quieto</option>
+                        <option value="barulho">Algum barulho</option>
+                        <option value="barulhodms">Barulhento</option>
+                    </select>
+                </p>
+
+                <p>Quantas pessoas moram com você?<br>
+                    <select id="qtde">
+                        <option value=""></option>
+                        <option value="sozinho">Moro sozinho</option>
+                        <option value="uma">Uma pessoa</option>
+                        <option value="duas">Duas pessoas</option>
+                        <option value="tres">Três pessoas</option>
+                        <option value="mais">Mais de três pessoas</option>
+                    </select>
+                </p>
+
+                <p>Quantos gatos você já tem em casa?<br>
+                    <select id="gatos">
+                        <option value=""></option>
+                        <option value="zero">Nenhum</option>
+                        <option value="um">Somente um</option>
+                        <option value="dois">Entre dois e quatro</option>
+                        <option value="quatro">Mais de 4</option>
+                    </select>
+                </p>
+
+                <p>Quantos cães você já tem em casa?<br>
+                    <select id="caes">
+                        <option value=""></option>
+                        <option value="zero">Nenhum</option>
+                        <option value="um">Somente um</option>
+                        <option value="dois">Entre dois e quatro</option>
+                        <option value="quatro">Mais de 4</option>
+                    </select>
+                </p>
+
+                <button type="submit">Próximo</button>
+            </form>
+        </div>
+        <script type="text/javascript" src="../js/index.js"></script>
+    </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Adopets</title>
+
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <script src="../js/jquery/dist/jquery.min.js"></script>
+        <script src="../js/popper.js/dist/umd/popper.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="../css/formularios.css" type="text/css">
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="27222478082-qv8o9tcgqvshk48futcnir1t1mv1hs3v.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        <script src="https://apis.google.com/js/api:client.js"></script>
+        <script>
+            var googleUser = {};
+            var startApp = function () {
+                gapi.load('auth2', function () {
+                    auth2 = gapi.auth2.init({
+                        client_id: '27222478082-qv8o9tcgqvshk48futcnir1t1mv1hs3v.apps.googleusercontent.com',
+                        cookiepolicy: 'single_host_origin',
+                    });
+                    attachSignin(document.getElementById('customBtn'));
+                });
+            };
+
+            function attachSignin(element) {
+                console.log(element.id);
+                auth2.attachClickHandler(element, {},
+                        function (googleUser) {
+                            var profile = googleUser.getBasicProfile();
+
+//                            var LoR = googleUser.getAuthResponse().id_token;
+//                            console.log("~ le Tolkien: " + LoR);
+
+                            var email = profile.getEmail();
+
+                            var redirectUrl = '/adopets/LoginGmailServlet';
+
+                            var form = $('<form action="' + redirectUrl + '" method="post">'
+                                    + '<input type="text" name="email" value="'
+                                    + email + '" />' + '</form>');
+                            $('body').append(form);
+                            form.submit();
+                        }, function (error) {
+                    alert(JSON.stringify(error, undefined, 2));
+                });
+            }
+        </script>
+    </head>
+    <body class="bg">
+
+        <div id="header"></div>
+
+        <!-- Dog-->
+        
+        <div class="card login-form col-md-4 offset-md-4" style="margin-top: 50px;">
+            <div class="card-body">
+
+                <form class="form-sign-in" action="/adopets/LoginServlet" method="post">
+                    <div class="offset">
+                        <div class="col-12 narrow text-center">
+                            <h3>Entre na sua conta</h3>
+                            <h6 class="card-subtitle mb-2 text-muted">É rápido e fácil</h6>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <a href="" class="btn btn-block btn-outline-primary"> <i class="fab fa-facebook-f"></i>   Entre via Facebook</a>
+                        <div id="gSignInWrapper">
+                            <div id="customBtn" class="btn btn-block btn-outline-danger">
+                                <span class="fab fa-google"></span>
+                                <span id="buttonText">Entrar com Google</span>
+                            </div>
+                        </div>
+                        <script>startApp();</script>
+                    </div>
+
+                    <center>ou</center>
+
+                    <div class="form-group">
+                        <label>Digite seu email</label>
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Email" required onchange="this.value = this.value.trim()">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Digite sua senha</label>
+                        <div class="input-group">
+                            <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capsLock(event)" required onchange="this.value = this.value.trim()">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">
+                                    <a href="#" class="text-dark" id="icon-click">
+                                        <i class="fa fa-eye-slash" id="icon" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <small id="senhaHelp" class="form-text text-muted">Esqueceu sua senha? <a href="paginaRecuperacao.html" target="_blank"> Clique aqui </a></small>
+                        <small id="mensagemTeclaCapsLock" class="form-text text-muted" style="visibility:hidden">Tecla Caps Lock está ativa.</small> 
+
+                    </div>
+
+
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Mantenha-me conectado</label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                </form>
+
+            </div>
+        </div>
+
+        <script type="text/javascript" src="../js/index.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+    </body>
+</html>

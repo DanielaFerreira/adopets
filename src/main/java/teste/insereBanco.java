@@ -6,7 +6,9 @@
 package teste;
 
 import dao.AdminDAO;
+import dao.UsuarioDAO;
 import model.Admin;
+import model.Usuario;
 
 /**
  *
@@ -22,6 +24,11 @@ public class insereBanco {
 	a.setEmail("aa");
 	AdminDAO b = new AdminDAO();
 	b.inserir(a);
+//    Usuario u = new Usuario();
+//    u.setEmail("aa@gmail.com");
+//    UsuarioDAO a = new UsuarioDAO();
+//    a.inserir(u);
+
     
     }
     

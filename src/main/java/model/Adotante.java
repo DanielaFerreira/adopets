@@ -15,9 +15,7 @@ import javax.persistence.Id;
 @Entity
 public class Adotante extends Usuario {
     
-    @Id
-    private String email;
-    
+
 
     public Adotante() {
     }
@@ -26,14 +24,6 @@ public class Adotante extends Usuario {
 	super(email, nome, senha, cpf_cnpj, dataNasc, telefone, bairro, foto);
     }
 
-    @Override
-    public String getEmail() {
-	return email;
-    }
 
-    @Override
-    public void setEmail(String email) {
-	this.email = email;
-    }
     
 }

@@ -16,8 +16,6 @@ import javax.persistence.PrimaryKeyJoinColumn;
 @Entity
 public class Admin extends Usuario {
     
-    @Id
-    private String email;
     
     
     public Admin() {
@@ -26,15 +24,6 @@ public class Admin extends Usuario {
     public Admin(String email, String nome, String senha, String cpf_cnpj, String dataNasc, String telefone, String bairro, String foto) {
 	super(email, nome, senha, cpf_cnpj, dataNasc, telefone, bairro, foto);
     }
-    
-    @Override
-    public String getEmail() {
-	return email;
-    }
 
-    @Override
-    public void setEmail(String email) {
-	this.email = email;
-    }
     
 }

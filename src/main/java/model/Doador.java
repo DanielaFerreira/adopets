@@ -15,9 +15,7 @@ import javax.persistence.Id;
 @Entity
 public class Doador extends Usuario {
     
-    @Id
-    private String email;
-    
+
 
     public Doador() {
     }
@@ -26,14 +24,4 @@ public class Doador extends Usuario {
 	super(email, nome, senha, cpf_cnpj, dataNasc, telefone, bairro, foto);
     }    
 
-    @Override
-    public String getEmail() {
-	return email;
-    }
-
-    @Override
-    public void setEmail(String email) {
-	this.email = email;
-    }
-    
 }

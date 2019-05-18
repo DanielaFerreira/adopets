@@ -6,6 +6,7 @@
 package model;
 
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
@@ -14,11 +15,25 @@ import javax.persistence.Entity;
 @Entity
 public class Voluntario extends Usuario {
 
+    @Id
+    private String email;
+    
+    
     public Voluntario() {
     }
 
     public Voluntario(String email, String nome, String senha, String cpf_cnpj, String dataNasc, String telefone, String bairro, String foto) {
 	super(email, nome, senha, cpf_cnpj, dataNasc, telefone, bairro, foto);
+    }
+
+    @Override
+    public String getEmail() {
+	return email;
+    }
+
+    @Override
+    public void setEmail(String email) {
+	this.email = email;
     }
     
 }

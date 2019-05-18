@@ -8,6 +8,7 @@ import javax.persistence.*;
  * @author eduardo
  */
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 public class Usuario implements Serializable {
 
     @Id    
@@ -26,6 +27,21 @@ public class Usuario implements Serializable {
     private String bairro;
 
     private String foto;
+    
+
+    public Usuario() {
+    }
+    
+    public Usuario(String email, String nome, String senha, String cpf_cnpj, String dataNasc, String telefone, String bairro, String foto) {
+	this.email = email;
+	this.nome = nome;
+	this.senha = senha;
+	this.cpf_cnpj = cpf_cnpj;
+	this.dataNasc = dataNasc;
+	this.telefone = telefone;
+	this.bairro = bairro;
+	this.foto = foto;
+    }
 
     public String getEmail() {
         return email;

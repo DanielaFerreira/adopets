@@ -1,13 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  *
@@ -17,6 +11,7 @@ import javax.persistence.Id;
 public class Animal implements Serializable {
     
     @Id 
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long codigo;
     
     private String nome;
@@ -33,7 +28,9 @@ public class Animal implements Serializable {
     
     private String tempoEspera;
     
-    private String foto;
+    @Lob
+    @Column(columnDefinition = "longblob")
+    private byte[] foto;
     
     private String situacao;
     
@@ -45,7 +42,7 @@ public class Animal implements Serializable {
     public Animal() {
     }   
     
-    public Animal(Long codigo, String nome, String raça, String dataNasc, String sexo, String tipo, String necessidade, String tempoEspera, String foto, String situacao, String tamanho, String descricao) {
+    public Animal(Long codigo, String nome, String raça, String dataNasc, String sexo, String tipo, String necessidade, String tempoEspera, byte[] foto, String situacao, String tamanho, String descricao) {
 	this.codigo = codigo;
 	this.nome = nome;
 	this.raça = raça;
@@ -124,14 +121,14 @@ public class Animal implements Serializable {
 	this.tempoEspera = tempoEspera;
     }
 
-    public String getFoto() {
-	return foto;
+    public byte[] getFoto() {
+        return foto;
     }
 
-    public void setFoto(String foto) {
-	this.foto = foto;
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
-
+    
     public String getSituacao() {
 	return situacao;
     }

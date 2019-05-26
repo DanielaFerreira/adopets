@@ -25,14 +25,16 @@ public class Usuario implements Serializable {
     private String telefone;
 
     private String bairro;
-
-    private String foto;
+    
+    @Lob
+    @Column(columnDefinition = "longblob")
+    private byte[] foto;
     
 
     public Usuario() {
     }
     
-    public Usuario(String email, String nome, String senha, String cpf_cnpj, String dataNasc, String telefone, String bairro, String foto) {
+    public Usuario(String email, String nome, String senha, String cpf_cnpj, String dataNasc, String telefone, String bairro, byte[] foto) {
 	this.email = email;
 	this.nome = nome;
 	this.senha = senha;
@@ -99,11 +101,11 @@ public class Usuario implements Serializable {
         this.bairro = bairro;
     }
 
-    public String getFoto() {
+    public byte[] getFoto() {
         return foto;
     }
 
-    public void setFoto(String foto) {
+    public void setFoto(byte[] foto) {
         this.foto = foto;
     }
     

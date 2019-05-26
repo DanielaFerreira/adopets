@@ -1,5 +1,5 @@
 /*
- * 
+ * index.js
  */
 
 /* JavaScript funcoes */
@@ -21,11 +21,15 @@ $(function () {
 });
 
 $(function () {
-    $("#header_logado").load("../padroes/header_logado.html");
+    $("#header_logado").load("../padroes/header_logado.jsp");
 });
 
 $(function () {
     $("#footer").load("../padroes/footer.html");
+});
+
+$(function () {
+    $("#header_logadoAdmin").load("../padroes/newjsp.jsp");
 });
 
 //exibe ou esconde o campo de senha
@@ -73,4 +77,3 @@ $('input[type="password"]').on('focus', () => {
 }).on('focusout', () => {
     $('*').removeClass('password');
 });
-

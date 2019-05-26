@@ -1,0 +1,98 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19/05/2019, 08:37:36
+    Author     : daniela
+*/
+
+
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+@import url('https://fonts.googleapis.com/css?family=Patua+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap');
+
+img{
+    border-radius: 20px;
+}
+/*,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue"*/
+body {
+    padding-top: 60px !important;
+    color: #333;
+    font-family: 'Ruda', sans-serif;
+}
+
+.title, html, body{
+    background-color: #7d669e;
+}
+
+h1{
+    color: white !important;
+    font-size: 50px;
+    border-radius: 5px;
+    text-shadow: 5px 5px #64517f;
+    font-family: 'Patua One', cursive;
+}
+
+.subtitle{
+    color: white;
+    font-size: 22px;
+    font-family: 'Major MonoDisplay', monospace;
+}
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.refresh{
+    background-color:  #6f42c1;
+    border-color: #6610f2;
+}
+
+.refresh:hover{
+    background-color:  #64517f;
+        border-color: #6f42c1;
+}
+
+h5{
+    font-weight: bold;
+    color: #64517f;
+}
+
+p{
+    color: #7d669e;
+}
+
+/*Theme Buttons*/
+
+
+.btn-theme02 {
+    color: #fff;
+    background-color: #4C8FBD;
+    border-color: #286DA8;
+}
+.btn-theme02:hover,
+.btn-theme02:focus,
+.btn-theme02:active,
+.btn-theme02.active,
+.open .dropdown-toggle.btn-theme02 {
+    color: #fff;
+    background-color: #138496;
+    border-color: #438496;
+}
+
+.btn-theme04 {
+    color: #fff;
+    background-color: #CF6766;
+    border-color: #CD5660;
+}
+.btn-theme04:hover,
+.btn-theme04:focus,
+.btn-theme04:active,
+.btn-theme04.active,
+.open .dropdown-toggle.btn-theme04 {
+    color: #fff;
+    background-color: #da4453;
+    border-color: #da4453;
+}

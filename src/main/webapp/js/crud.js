@@ -26,7 +26,7 @@ $(document).ready(function () {
         }});
 });
 
-$('#eddit_modal').on('show.bs.modal', function (event) {
+/*$('#eddit_modal').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) // Botão que acionou o modal
   var recipient = td.data('#name') // Extrai informação dos atributos data-*
   // Se necessário, você pode iniciar uma requisição AJAX aqui e, então, fazer a atualização em um callback.
@@ -34,4 +34,4 @@ $('#eddit_modal').on('show.bs.modal', function (event) {
   var modal = $(this)
   modal.find('.modal-title').text('Alterar dados de ' + recipient)
   modal.find('.modal-body input').val(recipient)
-});
+});*/

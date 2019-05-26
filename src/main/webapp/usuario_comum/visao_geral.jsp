@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="pt-br">
     <head>
         <title>Adopets</title>
@@ -17,8 +18,6 @@
         <script src="../js/popper.js/dist/umd/popper.min.js"></script>
     </head>
     <body>
-
-        <% String email = (String) request.getParameter("email");%>
 
         <div id="header_logado"></div>
         <!--            <div class="hr dotted"></div>-->
@@ -36,7 +35,7 @@
                                 <div class="col-xs-3">
                                     <div class="fileupload fileupload-new" data-provides="fileupload">
                                         <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
-                                            <img src="../img/perfil.jpg" alt="Nenhuma imagem foi enviada"/>
+                                            <img name="foto" src="../img/perfil.jpg" alt="Nenhuma imagem foi enviada"/>
                                         </div>
                                         <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                         <div>
@@ -57,7 +56,7 @@
                 </center>
                 <!-- END SIDEBAR USERPIC -->
                 <!-- SIDEBAR USER TITLE -->
-                <h4>Fulano</h4>
+                <h4><c:out value="${usuario.nome}"></c:out></h4>
 
 
                 <!-- SIDEBAR BUTTONS -->
@@ -97,36 +96,36 @@
                     <div class="alert alert-warning">
                         <a class="close font-weight-light" data-dismiss="alert" href="#">×</a>Clique em Salvar Alterações, caso tenha modificado o seu perfil.
                     </div>
-                    <form class="form" role="form" autocomplete="off">
+                    <form class="form" role="form" autocomplete="off" action="/adopets/AlterarUsuario">
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Nome Completo</label>
-                            <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Fulano Ciclano Beltrano">
+                            <div class="col-lg-9">                                
+                                    <input class="form-control" type="text" name="nome" value="<c:out value="${usuario.nome}"></c:out>">                                    
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">CPF</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Não informado">
+                                <input class="form-control" type="text" name="cpf_cnpj" value="<c:out value="${usuario.cpf_cnpj}"></c:out>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">E-mail</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="email" value="fulano@gmail.com">
+                                <input class="form-control" type="email" name="email" value="<c:out value="${usuario.email}"></c:out>" readonly> 
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Bairro</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="Zona Leste">
+                                <input class="form-control" type="text" name="bairro" value="<c:out value="${usuario.bairro}"></c:out>">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Senha</label>
                             <div class="col-lg-7">
-                                <input name="senha" type="password" class="form-control" maxlength="20" required onchange="this.value = this.value.trim()" placeholder="Senha" id="pass" onkeypress="capsLock(event)" value="11111122333">
+                                <input name="senha" type="password" class="form-control" maxlength="20" placeholder="Senha" id="pass" onkeypress="capsLock(event)" value="<c:out value="${usuario.senha}"></c:out>">
                             </div>
                             <div class="row-lg-7">
                                 <div class="input-group-text">
@@ -141,14 +140,14 @@
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label">Telefone</label>
                             <div class="col-lg-9">
-                                <input class="form-control" type="text" value="(92) 99484-5169">
+                                <input class="form-control" type="text" name="telefone" value="<c:out value="${usuario.telefone}"></c:out>">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label form-control-label"></label>
                             <div class="col-lg-9">
-                                <input type="submit" class="btn btn-danger" value="Excluir Conta">
-                                <input type="button" class="btn btn-primary" value="Salvar Alterações">
+                                <input type="button" class="btn btn-danger" value="Excluir Conta">
+                                <input type="submit" class="btn btn-primary" value="Salvar Alterações">
                             </div>
                         </div>
                     </form>

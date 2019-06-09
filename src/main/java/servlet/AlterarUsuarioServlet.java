@@ -30,8 +30,10 @@ public class AlterarUsuarioServlet extends HttpServlet {
 	String bairro = request.getParameter("bairro");
 	String senha = request.getParameter("senha");
 	String telefone = request.getParameter("telefone");
-//	byte[] foto = request.getParameter("foto").getBytes();
+//	byte[] foto = request.getParameter("foto").getBytes(); //aqui ta o problema
 
+	
+	System.out.println("foto: " + request.getParameter("foto"));
 	Usuario u = new Usuario();
 	u = (Usuario) request.getSession().getAttribute("usuario");
 
@@ -45,12 +47,11 @@ public class AlterarUsuarioServlet extends HttpServlet {
 
 	UsuarioDAO dao = new UsuarioDAO();
 	String str = dao.atualizar(u);
-//	if (str.equals("")) {
+	if (str == null) {
 	    response.sendRedirect("../adopets/usuario_comum/visao_geral.jsp");
-//	} else {
-//	    response.getWriter().println("Errado!");
-//	    response.getWriter().println(str);
-//	}
+	} else {
+	    System.out.println("Erro: " + str);
+	}
     }
 
 }

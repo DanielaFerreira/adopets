@@ -57,29 +57,29 @@
                     <div class="card-body"> <!-- indice da lista-->
                         <c:choose>
                             <c:when test="${empty animal.getFoto()}">
-                                <img class="avatar" alt="Imagem de perfil" title="Imagem de perfil" src="../img/perfil_miniatura.jpg"/>
+                                <div class="avatar" alt="Imagem de perfil" title="Imagem de perfil"><%=animal.getFoto()%></div>
                             </c:when>
                             <c:otherwise>
-                                <div class="avatar" alt="Imagem de perfil" title="Imagem de perfil"><%=animal.getFoto()%></div>
+                                <img class="avatar" alt="Imagem de perfil" title="Imagem de perfil" src="../img/perfil_miniatura.jpg"/>
                             </c:otherwise>
                         </c:choose>
                         <h5 class="card-title" name="nome"><%=animal.getNome()%> </h5> <!-- Nome Daniela -->
 
                         <c:choose>
                             <c:when test="${empty animal.getSexo() }">
-                                <p class="card-text">Sexo não informado</p>
+                                <p class="card-text"><%=animal.getSexo()%></p>
                             </c:when>
                             <c:otherwise>
-                                <p class="card-text"><%=animal.getSexo()%></p>
+                                <p class="card-text">Sexo não informado</p>
                             </c:otherwise>
                         </c:choose>
 
                         <c:choose>
                             <c:when test="${empty animal.getRaça()}">
-                                <p class="card-text">Raça não informada</p>
+                                <p class="card-text"><%=animal.getRaça()%></p>
                             </c:when>
                             <c:otherwise>
-                                <p class="card-text"><%=animal.getRaça()%></p>
+                                <p class="card-text">Raça não informada</p>
                             </c:otherwise>
                         </c:choose>
 
@@ -92,7 +92,7 @@
                             </a>
 
                             <button type="submit" class="btn btn-danger delete col-auto" 
-                                <i class="far fa-trash-alt" style="margin-right: 7px;"></i>Excluir
+                                    <i class="far fa-trash-alt" style="margin-right: 7px;"></i>Excluir
                             </button>
 
 

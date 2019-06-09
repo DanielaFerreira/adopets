@@ -8,6 +8,7 @@
 /home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/servlet/EnviaEmailServlet.java
 /home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/servlet/AlterarUsuarioServlet.java
 /home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/model/Animal.java
+/home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/servlet/RecuperaContaServlet.java
 /home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/dao/UserTempDAO.java
 /home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/servlet/ListarUsuariosServlet.java
 /home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/model/UserTemp.java

@@ -52,6 +52,14 @@
         <servlet-name>AlterarAnimalServlet</servlet-name>
         <servlet-class>servlet.AlterarAnimalServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>RecuperaContaServlet</servlet-name>
+        <servlet-class>servlet.RecuperaContaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>sairServlet</servlet-name>
+        <servlet-class>servlet.sairServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastraGmailUsuarioServlet</servlet-name>
         <url-pattern>/CadastraGmailUsuarioServlet</url-pattern>
@@ -103,6 +111,14 @@
     <servlet-mapping>
         <servlet-name>AlterarAnimalServlet</servlet-name>
         <url-pattern>/AlterarAnimalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecuperaContaServlet</servlet-name>
+        <url-pattern>/RecuperaContaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sairServlet</servlet-name>
+        <url-pattern>/sairServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

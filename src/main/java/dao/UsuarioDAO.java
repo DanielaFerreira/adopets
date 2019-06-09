@@ -109,38 +109,36 @@ public class UsuarioDAO {
 	return u;
     }
 
-//    public String atualizar(Usuario u) {
-//	Session s = HibernateUtil.getSessionFactory().openSession();
-//	Transaction tx = null;
-//	try {
-//	    tx = s.beginTransaction();
-////	    Usuario usuario = (Usuario) s.get(Usuario.class, u.getEmail());
-//	    s.update(u);
-//	    tx.commit();
-//	} catch (HibernateException e) {
-//	    if (tx != null) {
-//		tx.rollback();
-//	    }
-//	    e.printStackTrace();
-//	} finally {
-//	    s.close();
-//	}
-//    }
-    
     public String atualizar(Usuario u) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        String message = null;
+	Session session = HibernateUtil.getSessionFactory().openSession();
+	session.beginTransaction();
+	String message = null;
 	try {
-            session.update(u);
-            session.getTransaction().commit();
-        } catch (Exception e) {
-            session.getTransaction().rollback();
-            message = e.getMessage();
-        } finally {
-            session.close();
-        }
-        return message;
+	    session.update(u);
+	    session.getTransaction().commit();
+	} catch (Exception e) {
+	    session.getTransaction().rollback();
+	    message = e.getMessage();
+	} finally {
+	    session.close();
+	}
+	return message;
+    }
+
+    public void updateSenha(String email, String senhaAleatoria) {
+
+	Session session = HibernateUtil.getSessionFactory().openSession();
+	session.beginTransaction();
+
+	Query query = session.createQuery("update Usuario set senha = :senhaAleatoria"
+		+ " where email = :email");
+	query.setParameter("senhaAleatoria", senhaAleatoria);
+	query.setParameter("email", email);
+	query.executeUpdate();
+
+	session.getTransaction().commit();
+	session.close();
+
     }
 
 }

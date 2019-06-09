@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
             if (!usuarios.isEmpty()) {
                 out.println("Bem-vindo!");
                 String pagina = "../adopets/usuario_comum/visao_geral.jsp";
-                request.setAttribute("email", request.getParameter("email"));
+		request.getSession().setAttribute("usuario", usuario);
                 response.sendRedirect(pagina);
             } else {
                 out.println("<html>");

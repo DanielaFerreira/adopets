@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--Eduardo-->
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>CadastraGmailUsuarioServlet</servlet-name>
@@ -45,6 +44,22 @@
         <servlet-name>ExcluirAnimalServlet</servlet-name>
         <servlet-class>servlet.ExcluirAnimalServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CadastrarUsuarioServlet</servlet-name>
+        <servlet-class>servlet.CadastrarUsuarioServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AlterarAnimalServlet</servlet-name>
+        <servlet-class>servlet.AlterarAnimalServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RecuperaContaServlet</servlet-name>
+        <servlet-class>servlet.RecuperaContaServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>sairServlet</servlet-name>
+        <servlet-class>servlet.sairServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CadastraGmailUsuarioServlet</servlet-name>
         <url-pattern>/CadastraGmailUsuarioServlet</url-pattern>
@@ -88,6 +103,22 @@
     <servlet-mapping>
         <servlet-name>ExcluirAnimalServlet</servlet-name>
         <url-pattern>/ExcluirAnimalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CadastrarUsuarioServlet</servlet-name>
+        <url-pattern>/CadastrarUsuarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AlterarAnimalServlet</servlet-name>
+        <url-pattern>/AlterarAnimalServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RecuperaContaServlet</servlet-name>
+        <url-pattern>/RecuperaContaServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>sairServlet</servlet-name>
+        <url-pattern>/sairServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

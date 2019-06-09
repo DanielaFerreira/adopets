@@ -45,7 +45,7 @@
 
     <div class="card col-md-4 mx-auto" style="margin-top: 10px;">
         <div class="card-body">
-            <form class="form">
+            <form class="form" action="/adopets/RecuperaContaServlet">
                 <div class="offset">
                     <div class="col-12 narrow text-center">
                         <h1>Recuperação de conta</h1>
@@ -55,7 +55,7 @@
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Digite seu email</label>
-                    <input type="email" required onchange="this.value = this.value.trim()" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+                    <input name="email" type="email" required onchange="this.value = this.value.trim()" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Continuar</button>
 

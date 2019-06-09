@@ -5,82 +5,72 @@
  */
 package servlet;
 
+import dao.UserTempDAO;
+import dao.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Usuario;
 
 /**
  *
- * @author daniela
+ * @author eddunic
  */
 public class CadastrarUsuarioServlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CadastrarUsuarioServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet CadastrarUsuarioServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
+	    throws ServletException, IOException {
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+	PrintWriter out = response.getWriter();
+
+	UserTempDAO dao = new UserTempDAO();
+
+	if (String.valueOf(dao.buscarCodigo(request.getParameter("codigo"))).replace("[", "").replace("]", "").equals(request.getParameter("codigo"))) {
+	    String email = String.valueOf(dao.buscarEmail(request.getParameter("codigo"))).replace("[", "").replace("]", "");
+	    String nome = String.valueOf(dao.buscarNome(request.getParameter("codigo"))).replace("[", "").replace("]", "");
+	    String senha = String.valueOf(dao.buscarSenha(request.getParameter("codigo"))).replace("[", "").replace("]", "");
+
+	    Usuario usuario = new Usuario();
+
+	    usuario.setEmail(email);
+	    usuario.setNome(nome);
+	    usuario.setSenha(senha);
+
+	    UsuarioDAO dao2 = new UsuarioDAO();
+	    dao2.inserir(usuario);
+	    System.out.println("Usuário cadastrado!");
+
+	    out.println("<html>");
+	    out.println("<head>");
+	    out.println("<title>Adopets</title>");
+	    out.println("</head>");
+	    out.println("<body>");
+	    out.println("<script language = 'JavaScript'>");
+	    out.println("    alert('Você foi cadastrado com sucesso!'); window.location.href='../adopets/entrada/login.html';");
+	    out.println(" </script>");
+	    out.println("</body>");
+	    out.println("</html>");
+	    out.close();
+
+	    UserTempDAO.excluir(email);
+	} else {
+	    out.println("<html>");
+	    out.println("<head>");
+	    out.println("<title>Adopets</title>");
+	    out.println("</head>");
+	    out.println("<body>");
+	    out.println("<script language = 'JavaScript'>");
+	    out.println("    alert('Digite um código válido'); window.location.href='../adopets/entrada/confirmacaoConta.html';");
+	    out.println(" </script>");
+	    out.println("</body>");
+	    out.println("</html>");
+	    out.close();
+	}
+
+    }
 
 }

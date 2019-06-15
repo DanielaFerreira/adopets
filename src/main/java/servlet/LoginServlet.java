@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
 
         Usuario usuario = new Usuario();
 
-        if (!"".equals(request.getParameter("email")) && !"".equals(request.getParameter("senha"))) {
+        if (!"".equals(request.getParameter("nome")) && !"".equals(request.getParameter("senha"))) {
 
             usuario.setEmail(request.getParameter("email"));
             usuario.setSenha(request.getParameter("senha"));

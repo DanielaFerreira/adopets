@@ -1,8 +1,10 @@
 model/Usuario.class
 model/Doador.class
+servlet/RecuperaContaServlet.class
 model/Adotante.class
 dao/UsuarioDAO.class
 servlet/LoginGmailServlet.class
+servlet/ExcluirAnimalServlet.class
 servlet/ExcluirUsuarioServlet.class
 util/CommonsMail.class
 servlet/ListarUsuarioServlet.class
@@ -10,6 +12,7 @@ util/HibernateUtil.class
 servlet/ListarAnimaisServlet.class
 dao/UserTempDAO.class
 teste/insereBanco.class
+servlet/sairServlet.class
 servlet/CadastrarAnimalServlet.class
 servlet/AlterarUsuarioServlet.class
 dao/AdminDAO.class
@@ -24,3 +27,4 @@ servlet/ListarUsuariosServlet.class
 model/Voluntario.class
 dao/AnimalDAO.class
 servlet/ListarAnimalServlet.class
+servlet/AlterarAnimalServlet.class

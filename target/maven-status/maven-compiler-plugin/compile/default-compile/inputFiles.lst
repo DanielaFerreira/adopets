@@ -24,6 +24,7 @@
 /home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/servlet/ListarUsuarioServlet.java
 /home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/servlet/CadastrarUsuarioServlet.java
 /home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/model/Voluntario.java
+/home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/servlet/sairServlet.java
 /home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/servlet/ExcluirUsuarioServlet.java
 /home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/servlet/CadastraGmailUsuarioServlet.java
 /home/eduardo/Documentos/NetBeansProjects/adopets/src/main/java/servlet/AlterarAnimalServlet.java

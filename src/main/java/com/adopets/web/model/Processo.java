@@ -91,8 +91,8 @@ public class Processo implements Serializable {
     public Processo() {
         this.numero = null;
         this.motivo = "";
-        this.dataAdocao = Date.from(Instant.MIN);
-        this.dataDoacao = Date.from(Instant.MIN);
+        this.dataAdocao = null;
+        this.dataDoacao = null;
         this.autorizacao = "";
         this.situacao = "";
         this.tipo = "";

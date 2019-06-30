@@ -86,9 +86,6 @@ public class Animal implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataNasc;
 
-    @OneToMany(mappedBy = "animail")
-    private List<ServicoVoluntario> servicosVoluntarios;
-
     @ManyToMany
     @JoinTable(
             name = "processoAnimal",
@@ -110,7 +107,7 @@ public class Animal implements Serializable {
         this.id = null;
         this.nome = "";
         this.raca = "";
-        this.dataNasc = Date.from(Instant.MIN);
+        this.dataNasc = null;
         this.sexo = "";
         this.tipo = "";
         this.necessidade = "";
@@ -119,10 +116,9 @@ public class Animal implements Serializable {
         this.situacao = "";
         this.tamanho = "";
         this.descricao = "";
-        servicosVoluntarios = new ArrayList<>();
     }
 
-    public Animal(Long id, String nome, String raca, Date dataNasc, String sexo, String tipo, String necessidade, String tempoEspera, byte[] foto, String situacao, String tamanho, String descricao, ServicoVoluntario servicoVoluntario) {
+    public Animal(Long id, String nome, String raca, Date dataNasc, String sexo, String tipo, String necessidade, String tempoEspera, byte[] foto, String situacao, String tamanho, String descricao) {
         this.id = id;
         this.nome = nome;
         this.raca = raca;
@@ -135,35 +131,6 @@ public class Animal implements Serializable {
         this.situacao = situacao;
         this.tamanho = tamanho;
         this.descricao = descricao;
-        servicosVoluntarios.add(servicoVoluntario);
-    }
-
-    public List<ServicoVoluntario> getServicosVoluntarios() {
-        return servicosVoluntarios;
-    }
-
-    public void setServicosVoluntarios(List<ServicoVoluntario> servicosVoluntarios) {
-        this.servicosVoluntarios = servicosVoluntarios;
-    }
-
-    public ServicoVoluntario getServicoVoluntario(Long servicoVoluntarioNumero) {
-        ServicoVoluntario servicoVoluntario = new ServicoVoluntario();
-        for (int i = 0; i < servicosVoluntarios.size(); i++) {
-            if (servicosVoluntarios.get(i).getNumero().equals(servicoVoluntarioNumero)) {
-                servicoVoluntario = servicosVoluntarios.get(i);
-            }
-        }
-        return servicoVoluntario;
-    }
-
-    public void setServicoVoluntario(ServicoVoluntario servicoVoluntario) {
-        for (int i = 0; i < servicosVoluntarios.size(); i++) {
-            if (servicosVoluntarios.get(i).getNumero().equals(servicoVoluntario.getNumero())) {
-                servicosVoluntarios.get(i).setAnimal(servicoVoluntario.getAnimal());
-                servicosVoluntarios.get(i).setDataS(servicoVoluntario.getDataS());
-                servicosVoluntarios.get(i).setHorario(servicoVoluntario.getHorario());
-            }
-        }
     }
 
     public Animal(Animal animal) {

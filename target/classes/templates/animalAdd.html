@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Cadastro Animais</title>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+              rel="stylesheet"/>
+        <link th:href="@{/css/doacao.css}" href="/css/doacao.css" rel="stylesheet"/>
+        <link th:href="@{/css/bootstrap-fileupload.css}" href="/css/bootstrap-fileupload.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <strong>Perfil</strong>
+            </div>
+            <div class="panel-body">
+                <form class="form-horizontal" th:object="${animal}" th:action="@{/save}" method="POST" enctype="multipart/form-data" style="margin: 10px">
+                    <div class="form-group">
+                        <fieldset>
+                            <center>
+                                <div class="form-group">
+                                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                                        <div class="fileupload-new thumbnail" style="width: 100px; height: 100px; margin-top: 10px;">
+                                            <img th:href="@{/img/dogPerfil.jpg}" src="/img/dogPerfil.jpg" alt="Nenhuma imagem foi enviada"/>
+                                        </div>
+                                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                        <div>
+                                            <span class="btn btn-theme02 btn-file">
+                                                <span class="fileupload-new"><i class="fa fa-paperclip"></i> Selecione uma imagem</span>
+                                                <span class="fileupload-exists"><i class="fa fa-undo"></i> Trocar</span>
+                                                <input th:field="*{foto}" type="file" th:classappend="${#fields.hasErrors('foto')}? 'has-error'" class="default" accept="image/png, image/jpeg"  multiple=""/>
+                                            </span>
+                                            <a href="" class="btn btn-theme04 fileupload-exists" data-dismiss="fileupload">
+                                                <i class="fas fa-trash-alt"></i> Apagar</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </center>
+                            <div class="form-group row">
+                                <div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+                                    <div th:each="detailedError : ${#fields.detailedErrors()}">
+                                        <span th:text="${detailedError.message}"></span>
+                                    </div>
+                                </div>
+                            </div> 					
+                            <div class="form-group row">
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control input-sm" id="id" th:field="*{id}" readOnly="readonly"></input>
+                                </div>
+                            </div>
+                            <div class="form-group row">                                                          
+                                <div class="col-md-4" th:classappend="${#fields.hasErrors('nome')}? 'has-error'">
+                                    <label>Nome</label>
+                                    <input type="text" class="form-control input-sm" th:field="*{nome}" autofocus="autofocus" placeholder="Informe o nome" maxlength="50"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-4" th:classappend="${#fields.hasErrors('raca')}? 'has-error'">
+                                    <label>Raça</label> 
+                                    <input type="text" class="form-control input-sm" th:field="*{raca}" maxlength="150" placeholder="Informe a raça"/>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-md-2" th:classappend="${#fields.hasErrors('dataNasc')}? 'has-error'">
+                                    <label>Data de Nascimento</label> 
+                                    <input type="date" class="form-control input-sm" th:field="*{dataNasc}"/>
+                                </div>
+                            </div>						
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Tipo</label>
+                                <div class="col-lg-9">
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" value="cao" th:field="*{tipo}" class="form-check-input" id="cao" name="tipo">Cão</input>
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" value="gato" class="form-check-input" th:field="*{tipo}" id="gato" name="tipo">Gato</input>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Sexo</label>
+                                <div class="col-lg-9">
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" value="macho" th:field="*{sexo}" class="form-check-input" id="macho" name="sexo">Macho</input>
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" value="femea" class="form-check-input" th:field="*{sexo}" id="gato" name="sexo">Fêmea</input>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Tamanho</label>
+                                <div class="col-lg-9">
+                                    <select id="tamanho" th:field="*{tamanho}" class="form-control">
+                                        <option value="pequeno">Pequeno</option>
+                                        <option value="medio">Médio</option>
+                                        <option value="grande">Grande</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Necessidade</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" th:field="*{necessidade}" type="text" placeholder="Possui alguma necessidade especial?"></input>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Descrição</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" th:field="*{descricao}" type="text" placeholder="Conte um pouco mais sobre o pet"></input>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">O animal está para</label>
+                                <div class="col-lg-9">
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" value="doacao" class="form-check-input" id="doacao" th:field="*{situacao}" name="situacao">Doação</input>
+                                        </label>
+                                    </div>
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" value="voluntariado" class="form-check-input" id="voluntariado" th:field="*{situacao}" name="situacao">Receber atividade voluntária</input>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <div class="form-group row">
+                        <button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+                        <a th:href="@{/}" class="btn btn-sm btn-default">Cancelar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <script th:src="@{/js/bootstrap-fileupload.js}" src="/js/bootstrap-fileupload.js"></script>
+
+    </body>
+</html>

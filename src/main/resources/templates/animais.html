@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Animais</title>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+              rel="stylesheet"/>
+        <link th:href="@{/css/listagens.css}" href="/css/listagens.css" rel="stylesheet"/>
+     
+       
+    </head>
+    <body class="container justify-content-center">
+        <div class="col-auto post-title"><h1 class="post-title">Perfis de animais</h1>
+            <p class="subtitle"><b>Cadastre, busque, visualize ou exclua</b> perfis de animais.</p>
+        </div>
+        <div class="row">
+            <form class="col-auto form-inline"  style="margin-top: 8px;">
+                <div class="input-group">
+                    <input name="search" type="search" onkeyup="filter();" id="search" class="form-control col-auto" placeholder="Buscar por..."></input>
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <a href="#" class="text-dark" id="icon-click">
+                                <i class="fas fa-search"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div>
+            <a class="btn btn-success" th:href="@{/add/}" style="margin-top: 8px; margin-left: 15px;">
+                <i class="far fa-plus-square"></i>    Adicionar
+            </a>
+            <a class="btn btn-info col-auto refresh" id="refresh" href="#cards" style="margin-top: 8px; margin-left: 15px;">
+                <i class="fa fa-undo"></i>    Atualizar
+            </a>
+            </div>
+        </div>
+        <div th:if="${message}" th:text="${message}" th:class="${'alert ' + alertClass}"></div>
+
+        <div th:each="animal : ${animais}">
+            <div class="row " id="cards">
+                <!--  <div class="btn-group pull-right">
+                      <a class="btn btn-sm btn-primary" th:href="@{/edit/{id}(id=${animal.id})}" >Editar</a>
+                      <a class="delete btn btn-sm btn-danger" th:href="@{/delete/{id}(id=${animal.id})}">Excluir</a>
+                  </div> -->
+                             <div class="card text-center shadow-lg p-3 mb-5 bg-white rounded" style="margin-top: 25px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <div class="card-body"> <!-- indice da lista-->
+                            <img src="" th:src="@{'data:image/png;base64,' + ${animal.getFoto()}}" class="avatar" title="Imagem de perfil" alt="Imagem de perfil"/> <!-- alt="Imagem de perfil"-->
+                            <h5 class="card-title" th:text="${animal.nome}"></h5> <!-- Nome Daniela -->
+
+                            <p class="card-text" th:text="${animal.raca}"></p>
+
+                            <p class="card-text" th:text="${animal.sexo}"></p>
+                            <p class="card-text" th:text="${#dates.format(animal.dataNasc, 'dd/MM/yyyy')}"></p>
+
+                            <div class="btn-group">
+
+                                <a href="" class="btn btn-info col-auto" th:href="@{/edit/{id}(id=${animal.id})}">
+                                    <i class="far fa-edit" style="margin-right: 7px;"></i>Alterar
+                                </a>
+
+                                <a class="btn btn-danger delete col-auto" th:href="@{/delete/{id}(id=${animal.id})}"  href="" > <!-- data-toggle="modal" data-target="#modal_excluir" th:attr="data-target='#modal_excluir'+${animal.id}"-->
+                                    <i class="far fa-trash-alt" style="margin-right: 7px;"></i>Excluir
+                                </a>
+
+
+
+                            </div>
+
+                        </div>
+                    </div> 
+                </div>
+            </div>
+  
+
+        <!-- <div id="modal_excluir" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modal_excluir" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Excluir Registro de Animal</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Tem certeza de que deseja excluir</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a class="btn btn-danger" href="" th:href="@{/delete/{id}(id=${animal.id})}">Excluir</a>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        -->
+
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+        <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+        <script th:src="@{/js/listagens.js}" src="/js/listagens.js"></script>
+
+        <!-- <script>$('#modal_excluir').click(function (event) {
+                            var button = $(event.relatedTarget); // Button that triggered the modal
+                            var objectName = button.data('object-name'); // Extract info from data-object-name attribute
+
+// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                            var modal = $(this);
+                            modal.find('.modal-body p').text('Tem certeza de que deseja excluir' + objectName + '?');
+                        });
+                        </script>-->
+    </body>
+</html>

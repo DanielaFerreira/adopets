@@ -12,20 +12,21 @@ import org.hibernate.validator.constraints.NotBlank;
 public class UserTemp implements Serializable {
 
     @Id
+    @Column(name = "email")
     private String email;
 
-    @Column(nullable = false)
-    @Lob
+    @Column(nullable = false, name = "nome")
+    @Basic
     @NotBlank(message = "Nome é um dado obrigatório.")
     private String nome;
 
-    @Column(nullable = false)
-    @Lob
+    @Column(nullable = false, name = "senha")
+    @Basic
     @NotBlank(message = "Senha é um dado obrigatório.")
     private String senha;
 
-    @Column(nullable = false)
-    @Lob
+    @Column(nullable = false, name= "codigo")
+    @Basic
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String codigo;
 

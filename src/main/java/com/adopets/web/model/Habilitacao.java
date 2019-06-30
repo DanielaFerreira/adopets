@@ -27,31 +27,37 @@ public class Habilitacao implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    @JoinColumn(name = "voluntario")
-    @ManyToMany
-    private Voluntario voluntario;
+    //email do voluntario
+    @Column(nullable = false, name = "emailVoluntario")
+    private String emailVoluntario;
 
-    @Column(nullable = false)
-    @JoinColumn(name = "servico")
-    @ManyToMany
-    private Servico servico;
+    //id do servico
+    @Column(nullable = false, name = "codigoServico")
+    private Long codigoServico;
 
     public Habilitacao() {
     }
 
-    public Habilitacao(Long id, Voluntario voluntario, Servico servico) {
+    public Habilitacao(Long id, String emVoluntario, Long codServico) {
         this.id = id;
-        this.voluntario = voluntario;
-        this.servico = servico;
+        this.emailVoluntario = emVoluntario;
+        this.codigoServico = codServico;
     }
 
-    public Voluntario getVoluntario() {
-        return voluntario;
+    public String getEmailVoluntario() {
+        return emailVoluntario;
     }
 
-    public Servico getServico() {
-        return servico;
+    public void setEmailVoluntario(String emailVoluntario) {
+        this.emailVoluntario = emailVoluntario;
+    }
+
+    public Long getCodigoServico() {
+        return codigoServico;
+    }
+
+    public void setCodigoServico(Long codigoServico) {
+        this.codigoServico = codigoServico;
     }
 
     public Long getId() {

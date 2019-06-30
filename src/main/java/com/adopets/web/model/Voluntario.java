@@ -1,8 +1,11 @@
 package com.adopets.web.model;
 
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -13,6 +16,9 @@ import javax.persistence.Id;
 public class Voluntario extends Usuario {
 
 
+    @ManyToOne
+    @JoinColumn(name = "emailVoluntario", nullable = false)
+    private Voluntario voluntario;
     
     public Voluntario() {
     }

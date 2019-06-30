@@ -24,11 +24,17 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity(name = "inclusao")
 public class Inclusao implements Serializable {
 
+    //segue a lógica:
+    /* Voluntario 1 : Servico M
+    * Voluntario 1 : Servico Voluntario M
+    *Servico M : Servico M
+    */
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @Column(nullable = false)
+    /* @Column(nullable = false)
     @JoinColumn(name = "voluntario")
     @OneToMany
     private Voluntario voluntario;
@@ -76,7 +82,7 @@ public class Inclusao implements Serializable {
 
     public ServicoVoluntario getServicoVoluntario() {
         return servicoVoluntario;
-    }
+    }*/
 
     public Long getId() {
         return id;

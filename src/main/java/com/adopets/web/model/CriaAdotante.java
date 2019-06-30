@@ -20,38 +20,42 @@ public class CriaAdotante implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    @JoinColumn(name = "adotante")
-    @ManyToMany
-    private Adotante adotante;
+    @Column(nullable = false, name = "emailAdotante")
+    private String emailAdotante;
 
-    @Column(nullable = false)
-    @JoinColumn(name = "processo")
-    @ManyToMany
-    private Processo processo;
+    //numero do processo
+    @Column(nullable = false, name = "numeroProcesso")
+    private Long numeroProcesso;
 
     public CriaAdotante() {
     }
 
-    public CriaAdotante(Adotante adotante, Processo processo) {
-        this.adotante = adotante;
-        this.processo = processo;
+    public CriaAdotante(String emailAdotante, Long numProcesso) {
+        this.emailAdotante = emailAdotante;
+        this.numeroProcesso = numProcesso;
     }
 
-    public Adotante getAdotante() {
-        return adotante;
+    public Long getId() {
+        return id;
     }
 
-    public void setAdotante(Adotante adotante) {
-        this.adotante = adotante;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Processo getProcesso() {
-        return processo;
+    public String getEmailAdotante() {
+        return emailAdotante;
     }
 
-    public void setProcesso(Processo processo) {
-        this.processo = processo;
+    public void setEmailAdotante(String emailAdotante) {
+        this.emailAdotante = emailAdotante;
     }
 
+    public Long getNumeroProcesso() {
+        return numeroProcesso;
+    }
+
+    public void setNumeroProcesso(Long numeroProcesso) {
+        this.numeroProcesso = numeroProcesso;
+    }
 }

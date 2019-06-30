@@ -6,10 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.Lob;
-import javax.persistence.ManyToMany;
-import org.hibernate.validator.constraints.NotBlank;
 
 @Entity(name = "criaDoador")
 public class CriaDoador implements Serializable {
@@ -17,41 +13,47 @@ public class CriaDoador implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    @JoinColumn(name = "doador")
-    @ManyToMany
-    private Doador doador;
+    @Column(nullable = false, name = "emailDoador")
+    private String emailDoador;
 
-    @Column(nullable = false)
-    @JoinColumn(name = "processo")
-    @ManyToMany
-    private Processo processo;
+    //numero do processo
+    @Column(nullable = false, name = "numeroProcesso")
+    private Long numeroProcesso;
 
     public CriaDoador() {
     }
 
-    public CriaDoador(Doador doador, Processo processo) {
-        this.doador = doador;
-        this.processo = processo;
+    public CriaDoador(String emailDoador, Long numProcesso) {
+        this.emailDoador = emailDoador;
+        this.numeroProcesso = numProcesso;
     }
 
-    public Doador getDoador() {
-        return doador;
+    public Long getId() {
+        return id;
     }
 
-    public void setDoador(Doador doador) {
-        this.doador = doador;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public Processo getNumProc() {
-        return processo;
+    public String getEmailDoador() {
+        return emailDoador;
     }
 
-    public void setNumProc(Processo numProc) {
-        this.processo = processo;
+    public void setEmailDoador(String emailDoador) {
+        this.emailDoador = emailDoador;
+    }
+
+    public Long getNumeroProcesso() {
+        return numeroProcesso;
+    }
+
+    public void setNumeroProcesso(Long numeroProcesso) {
+        this.numeroProcesso = numeroProcesso;
     }
 
 }

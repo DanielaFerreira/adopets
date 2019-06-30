@@ -6,12 +6,15 @@
 package com.adopets.web.model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
@@ -22,21 +25,25 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Servico implements Serializable {
 
     @Id
+    @Column(name = "codigo")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long codigo;
 
-    @Column(nullable = false)
-    @Lob
+    @Column(nullable = false, name = "tipo")
+    @Basic
     @NotBlank(message = "tipo é um dado obrigatório.")
     private String tipo;
-    
-    public Servico(){}
+
+
+
+    public Servico() {
+    }
 
     public Servico(Long codigo, String tipo) {
         this.codigo = codigo;
         this.tipo = tipo;
     }
-    
+
     public String getTipo() {
         return tipo;
     }
@@ -52,5 +59,5 @@ public class Servico implements Serializable {
     public void setCodigo(Long codigo) {
         this.codigo = codigo;
     }
-   
+
 }

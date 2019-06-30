@@ -15,39 +15,41 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Usuario implements Serializable {
 
     @Id
+    @Column(name = "email")
     private String email;
 
-    @Column(nullable = false)
-    @Lob
+    @Column(nullable = false, name = "nome")
     @NotBlank(message = "Nome é um dado obrigatório.")
     private String nome;
 
-    @Column(nullable = false)
-    @Lob
+    @Column(nullable = false, name = "senha")
+    @Basic
     @NotBlank(message = "Senha é um dado obrigatório.")
     private String senha;
 
-    @Column(nullable = false)
-    @Lob
+    @Column(nullable = false, name = "cpf_cnpj")
+    @Basic
     @NotBlank(message = "CPF/CNPJ é um dado obrigatório.")
     private String cpf_cnpj;
 
-    @Column(nullable = false)
-    @Lob
+    @Column(nullable = false, name = "dataNasc")
+    @Basic
     @NotBlank(message = "Data de Nascimento é um dado obrigatório.")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataNasc;
 
-    @Column(nullable = false)
-    @Lob
+    @Column(nullable = false, name = "bairro")
+    @Basic
     @NotBlank(message = "Bairro é um dado obrigatório.")
     private String bairro;
 
+    @Basic
+    @Column(nullable = true, name = "telefone")
     private String telefone;
 
     @Lob
-    @Column(columnDefinition = "longblob")
+    @Column(columnDefinition = "longblob", name = "foto")
     private byte[] foto;
 
     public Usuario() {

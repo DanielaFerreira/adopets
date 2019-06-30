@@ -6,6 +6,7 @@
 package com.adopets.web.model;
 
 import java.io.Serializable;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -25,44 +26,43 @@ import org.hibernate.validator.constraints.NotBlank;
 public class ProcessoAnimal implements Serializable {
 
     @Id
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    @JoinColumn(name = "processo")
-    @ManyToMany
-    private Processo processo;
+    //numeroProcesso do processo
+    @Column(nullable = false, name = "numeroProcesso")
+    private Long numeroProcesso;
 
-    @Column(nullable = false)
-    @JoinColumn(name = "animal")
-    @ManyToMany
-    private Animal animal;
+    //id do animal
+    @Column(nullable = false, name = "idAnimal")
+    private Long idAnimal;
 
     public ProcessoAnimal() {
     }
 
-    public ProcessoAnimal(Long id, Processo processo, Animal animal) {
+    public ProcessoAnimal(Long id, Long numeroProcesso, Long idAnimal) {
         this.id = id;
-        this.processo = processo;
-        this.animal = animal;
+        this.numeroProcesso = numeroProcesso;
+        this.idAnimal = idAnimal;
     }
 
-    public Processo getProcesso() {
-        return processo;
+    public Long getNumero() {
+        return numeroProcesso;
     }
 
-    public void setProcesso(Processo processo) {
-        this.processo = processo;
+    public void setNumero(Long numeroProcesso) {
+        this.numeroProcesso = numeroProcesso;
     }
 
-    public Animal getAnimal() {
-        return animal;
+    public Long getIdAnimal() {
+        return idAnimal;
     }
 
-    public void setAnimal(Animal animal) {
-        this.animal = animal;
+    public void setIdAnimal(Long idAnimal) {
+        this.idAnimal = idAnimal;
     }
-
+    
     public Long getId() {
         return id;
     }

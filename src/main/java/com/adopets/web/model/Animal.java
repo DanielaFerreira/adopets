@@ -1,14 +1,22 @@
 package com.adopets.web.model;
 
 import java.io.Serializable;
+import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.Basic;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.Lob;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,55 +31,98 @@ public class Animal implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @Column(name = "idAnimal")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    @Lob
+    @Basic
+    @Column(nullable = false, name = "raca")
     @NotBlank(message = "Raca é um dado obrigatório.")
     private String raca;
 
-    @Column(nullable = false)
-    @Lob
+    @Basic
+    @Column(nullable = false, name = "sexo")
     @NotBlank(message = "Sexo é um dado obrigatório.")
     private String sexo;
 
-    @Column(nullable = false)
-    @Lob
+    @Basic
+    @Column(nullable = false, name = "tipo")
     @NotBlank(message = "Tipo é um dado obrigatório.")
     private String tipo;
 
-    @Column(columnDefinition = "longblob")
+    @Column(columnDefinition = "longblob", name = "foto")
     @Lob
     @NotBlank(message = "Foto é um dado obrigatório.")
     private byte[] foto;
 
-    @Column(nullable = false)
-    @Lob
+    @Basic
+    @Column(nullable = false, name = "situacao")
     @NotBlank(message = "Situação é um dado obrigatório.")
     private String situacao;
 
-    @Column(nullable = false)
-    @Lob
+    @Basic
+    @Column(nullable = false, name = "tamanho")
     @NotBlank(message = "Tamanho é um dado obrigatório.")
     private String tamanho;
 
+    @Basic
+    @Column(nullable = true, name = "necessidade")
     private String necessidade;
 
+    @Basic
+    @Column(nullable = true, name = "tempoEspera")
     private String tempoEspera;
 
+    @Basic
+    @Column(nullable = true, name = "descricao")
     private String descricao;
 
+    @Basic
+    @Column(nullable = true, name = "nome")
     private String nome;
-    
+
+    @Column(nullable = true, name = "dataNasc")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataNasc;
 
-    public Animal() {
+    @OneToMany(mappedBy = "animail")
+    private List<ServicoVoluntario> servicosVoluntarios;
+
+    @ManyToMany
+    @JoinTable(
+            name = "processoAnimal",
+            joinColumns = @JoinColumn(name = "id"),
+            inverseJoinColumns = @JoinColumn(name = "processoId"))
+    private List<Processo> processos;
+
+    public List<Processo> getProcessos() {
+        return processos;
     }
 
-    public Animal(Long id, String nome, String raca, Date dataNasc, String sexo, String tipo, String necessidade, String tempoEspera, byte[] foto, String situacao, String tamanho, String descricao) {
+    public void setProcessos(List<Processo> processos) {
+        this.processos = processos;
+    }
+    
+    
+
+    public Animal() {
+        this.id = null;
+        this.nome = "";
+        this.raca = "";
+        this.dataNasc = Date.from(Instant.MIN);
+        this.sexo = "";
+        this.tipo = "";
+        this.necessidade = "";
+        this.tempoEspera = "";
+        this.foto = null;
+        this.situacao = "";
+        this.tamanho = "";
+        this.descricao = "";
+        servicosVoluntarios = new ArrayList<>();
+    }
+
+    public Animal(Long id, String nome, String raca, Date dataNasc, String sexo, String tipo, String necessidade, String tempoEspera, byte[] foto, String situacao, String tamanho, String descricao, ServicoVoluntario servicoVoluntario) {
         this.id = id;
         this.nome = nome;
         this.raca = raca;
@@ -84,6 +135,49 @@ public class Animal implements Serializable {
         this.situacao = situacao;
         this.tamanho = tamanho;
         this.descricao = descricao;
+        servicosVoluntarios.add(servicoVoluntario);
+    }
+
+    public List<ServicoVoluntario> getServicosVoluntarios() {
+        return servicosVoluntarios;
+    }
+
+    public void setServicosVoluntarios(List<ServicoVoluntario> servicosVoluntarios) {
+        this.servicosVoluntarios = servicosVoluntarios;
+    }
+
+    public ServicoVoluntario getServicoVoluntario(Long servicoVoluntarioNumero) {
+        ServicoVoluntario servicoVoluntario = new ServicoVoluntario();
+        for (int i = 0; i < servicosVoluntarios.size(); i++) {
+            if (servicosVoluntarios.get(i).getNumero().equals(servicoVoluntarioNumero)) {
+                servicoVoluntario = servicosVoluntarios.get(i);
+            }
+        }
+        return servicoVoluntario;
+    }
+
+    public void setServicoVoluntario(ServicoVoluntario servicoVoluntario) {
+        for (int i = 0; i < servicosVoluntarios.size(); i++) {
+            if (servicosVoluntarios.get(i).getNumero().equals(servicoVoluntario.getNumero())) {
+                servicosVoluntarios.get(i).setAnimal(servicoVoluntario.getAnimal());
+                servicosVoluntarios.get(i).setDataS(servicoVoluntario.getDataS());
+                servicosVoluntarios.get(i).setHorario(servicoVoluntario.getHorario());
+            }
+        }
+    }
+
+    public Animal(Animal animal) {
+        this.nome = animal.getNome();
+        this.raca = animal.getRaca();
+        this.dataNasc = animal.getDataNasc();
+        this.sexo = animal.getSexo();
+        this.tipo = animal.getTipo();
+        this.necessidade = animal.getNecessidade();
+        this.tempoEspera = animal.getTempoEspera();
+        this.foto = animal.getFoto();
+        this.situacao = animal.getSituacao();
+        this.tamanho = animal.getTamanho();
+        this.descricao = animal.getDescricao();
     }
 
     public Long getId() {
@@ -181,5 +275,4 @@ public class Animal implements Serializable {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
-
 }

@@ -7,6 +7,8 @@ package com.adopets.web.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +17,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,10 +32,11 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class ServicoVoluntario implements Serializable {
 
     @Id
+    @Column(name = "numero")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long numero;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "horario")
     @NotBlank(message = "Horário é um dado obrigatório.")
     @Temporal(TemporalType.TIME)
     @DateTimeFormat(pattern = "HH:mm:ss")
@@ -44,9 +48,8 @@ public class ServicoVoluntario implements Serializable {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dataS;
 
-    @JoinColumn(name = "animal")
-    @Column(nullable = false)
-    @OneToMany
+    @ManyToOne
+    @JoinColumn(name = "idAnimal", nullable = false)
     private Animal animal;
 
     public ServicoVoluntario() {
@@ -59,7 +62,7 @@ public class ServicoVoluntario implements Serializable {
         this.animal = animal;
     }
 
-    public Animal getanimal() {
+    public Animal getAnimal() {
         return animal;
     }
 
@@ -90,5 +93,4 @@ public class ServicoVoluntario implements Serializable {
     public void setDataS(Date dataS) {
         this.dataS = dataS;
     }
-
 }

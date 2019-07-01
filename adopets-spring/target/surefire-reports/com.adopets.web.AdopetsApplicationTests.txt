@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.adopets.web.AdopetsApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 44.474 sec - in com.adopets.web.AdopetsApplicationTests

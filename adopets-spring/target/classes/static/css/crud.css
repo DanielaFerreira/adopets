@@ -1,0 +1,36 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 28/04/2019, 17:39:17
+    Author     : daniela
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Ruda:400,700,900);
+
+img{
+    border-radius: 20px;
+}
+
+body {
+    padding-top: 60px !important;
+    color: #333;
+    font-family: 'Ruda', sans-serif;
+}
+
+
+h2{
+    font-weight: bold;
+    color: white;
+    background-color: #435d7d;
+    margin-left: auto; margin-right: auto; width: 90%;
+    border-radius: 5px;
+}
+
+
+#screen_crud{
+    margin-left: auto; margin-right: auto; width: 90%;
+}
+

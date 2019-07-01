@@ -1,0 +1,52 @@
+/* 
+    Created on : 02/03/2019, 15:57:31
+    Author     : daniela
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+body {
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif;
+}
+
+/* navigation */
+
+.navbar {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: .1rem;
+    background-color: transparent;
+    background: rgba(0, 0, 0, 0.6)!important;
+}
+
+.nav-item {
+    padding-left: 20px;
+}
+
+.navbar-brand img {
+    height: 3rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.btn-cadastro {
+    font-size: 14px;
+    font-weight: bold;
+    border-color: white;
+}
+
+.btn-cadastro:hover {
+    background-color: white;
+    text-shadow: none!important;
+    color: black!important;
+}
+
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #D2691E; 
+    text-shadow: black 0.1em 0.1em 0.2em;
+}
